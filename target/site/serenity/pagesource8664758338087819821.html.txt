@@ -1,0 +1,1183 @@
+<!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml" ng-app="app" ng-init="noncore = false;contentEmbedded = true" ng-strict-di="" class=" supports cssfilters"><head><style type="text/css">@charset "UTF-8";[ng\:cloak],[ng-cloak],[data-ng-cloak],[x-ng-cloak],.ng-cloak,.x-ng-cloak,.ng-hide:not(.ng-hide-animate){display:none !important;}ng\:form{display:block;}.ng-animate-shim{visibility:hidden;}.ng-anchor{position:absolute;}</style>
+    <style>
+        /* This helps the ng-show/ng-hide animations start at the right place. */
+        /* Since Angular has this but needs to load, this gives us the class early. */
+        .ng-hide, .ng-cloak { display: none!important; }
+    </style>
+    <!----><title ng-if="!title">OrangeHRM</title><!---->
+    <!---->
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no" />
+    <base href="/client/" />
+    <link id="linkSymfonyRoot" href="/" />
+    <link id="linkWebres" href="webres_5b22377f57f6e9.10136695" />
+    <link rel="shortcut icon" href="/client/images/favicon.ico" />
+            <link rel="stylesheet" href="build/styles/lib-c033c7b0cd.css" /><link rel="stylesheet" href="/client/build/styles/app-d4f86d2992.css" /></head>
+<body>
+
+        <script src="build/js/lib-04a242666d.js"></script>        <script src="build/js/app-1490748d82.js"></script>
+<div id="wrapper">
+    <div>
+    <div ng-controller="ShellController as vm">
+        <div ng-style="{'display': noncore ? 'none' : 'block'}" id="left-menu" class="menu-visible" ng-class="{'menu-visible' : vm.showMenu}" style="display: block;">
+            <div id="ohrm-small-logo"><div></div></div>
+            <a href="" id="side-menu-hamburger" class="circle black-text" ng-click="vm.toggleMainMenu()">
+                <i class="tiny material-icons">close</i></a>
+            <div id="menu-container" ohrm-main-menu="" ng-show="vm.showMenu" class="">
+<div id="main-menu">
+    <div>
+        <div id="menu-profile-background">
+            <img src="data:image/jpeg;base64,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" />
+        </div>
+        <div id="menu-profile">
+            <img class="circle account-photo" data-empnumber="13" data-photourl="data:image/jpeg;base64,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" src="data:image/jpeg;base64,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" />
+            <a id="user-dropdown" class="dropdown-button waves-effect" href="javascript:;" data-activates="user_menu" data-constrainwidth="false" data-alignment="left" data-gutter="200" ohrm-dropdown="">
+                <span id="account-name">Jacqueline White</span>
+                <br /><span id="account-job">Global HR Manager<i class="material-icons">keyboard_arrow_down</i></span>
+            </a><ul id="user_menu" class="dropdown-content">
+    <li><a href="#" id="aboutDisplayLink">About</a></li>
+    <li><a target="_blank" href="/core/trainingSSO">Training</a></li>
+<!--    <li><a target="_parent" href="--><!--">--><!--</a></li>-->
+    <li><a id="logoutLink" href="/auth/logout">Logout</a></li>
+</ul>
+
+        </div>
+        <div id="my-shortcuts">
+            <a id="shortcut-menu-trigger" data-gutter="200" data-alignment="left" data-constrainwidth="false" class="dropdown-button waves-effect" href="javascript:;" data-activates="shortcut_menu">
+                <span class="material-icons left-menu-icon">ohrm_shortcuts</span>
+                <span class="left-menu-title">My Shortcuts</span>
+            </a><ul id="shortcut_menu" class="dropdown-content">
+            <li><a href="/buzz/viewBuzz" target="_blank">OrangeBuzz</a></li>
+            <li><a href="#/leave/assign" ui-sref="leave.assign" target="_top">Assign Leave</a></li>
+            <li><a href="#/leave/view_leave_list" ui-sref="leave.view_leave_list" target="_top">Leave List</a></li>
+            <li><a href="#/leave/calendar_shortcut" ui-sref="leave.calendar_shortcut" target="_top">Leave Calendar</a></li>
+            <li><a href="/time/viewEmployeeTimesheet" target="_self">Timesheets</a></li>
+            <li><a href="#/leave/apply" ui-sref="leave.apply" target="_top">Apply Leave</a></li>
+            <li><a href="#/leave/view_my_leave_list" ui-sref="leave.view_my_leave_list" target="_top">My Leave</a></li>
+            <li><a href="/time/viewMyTimesheet" target="_self">My Timesheet</a></li>
+    
+            <li id="1"><a target="_parent" href="/client/#/route/performance.view_appraisals_list({&quot;filterParameters&quot;:{&quot;employeeId&quot;:&quot;25&quot;,&quot;employee&quot;:{&quot;title&quot;:&quot;Linda  Anderson &quot;,&quot;description&quot;:{&quot;empNumber&quot;:&quot;25&quot;,&quot;firstName&quot;:&quot;Linda&quot;,&quot;lastName&quot;:&quot;Anderson&quot;,&quot;middleName&quot;:&quot;&quot;,&quot;termination_id&quot;:null},&quot;image&quot;:&quot;&quot;,&quot;originalObject&quot;:{&quot;empNumber&quot;:&quot;25&quot;,&quot;firstName&quot;:&quot;Linda&quot;,&quot;lastName&quot;:&quot;Anderson&quot;,&quot;middleName&quot;:&quot;&quot;,&quot;termination_id&quot;:null},&quot;$$hashKey&quot;:&quot;object:2288&quot;},&quot;cycleId&quot;:&quot;&quot;},&quot;calledFromMyShortcuts&quot;:true})" my_shortcut="" class="my_shortcut_link" state="performance.view_appraisals_list" params="{&quot;employeeId&quot;:&quot;25&quot;,&quot;employee&quot;:{&quot;title&quot;:&quot;Linda  Anderson &quot;,&quot;description&quot;:{&quot;empNumber&quot;:&quot;25&quot;,&quot;firstName&quot;:&quot;Linda&quot;,&quot;lastName&quot;:&quot;Anderson&quot;,&quot;middleName&quot;:&quot;&quot;,&quot;termination_id&quot;:null},&quot;image&quot;:&quot;&quot;,&quot;originalObject&quot;:{&quot;empNumber&quot;:&quot;25&quot;,&quot;firstName&quot;:&quot;Linda&quot;,&quot;lastName&quot;:&quot;Anderson&quot;,&quot;middleName&quot;:&quot;&quot;,&quot;termination_id&quot;:null},&quot;$$hashKey&quot;:&quot;object:2288&quot;},&quot;cycleId&quot;:&quot;&quot;}">Lindas Review</a></li>
+    
+        <li id="my_shortcut_configuration_option_li"><a target="_parent" id="my_shortcut_configuration_option" href="/client/#/pim/configure_my_shortcuts">Configure My Shortcuts</a></li>
+    </ul>
+        </div>
+        <div id="menu-content">
+            <ul class="collapsible collapsible-accordion">
+                <li id="menu_admin_viewAdminModule" class="level1 admin no-padding parent"><a class="collapsible-header waves-effect waves-orange"><span class="material-icons left-menu-icon"></span><span class="left-menu-title">Admin</span><span class="material-icons collapsible-indicator"></span></a><div class="collapsible-body" style=""><ul class="collapsible collapsible-accordion"><li id="menu_admin_UserManagement" class="level2 no-padding parent"><a class="collapsible-header waves-effect waves-orange"><span class="material-icons left-menu-icon"></span><span class="left-menu-title">User Management</span><span class="material-icons collapsible-indicator"></span></a><div class="collapsible-body" style=""><ul class="collapsible collapsible-accordion"><li class="level3"><a href="#/admin/systemUsers" ui-sref="admin.systemUsers" ui-sref-opts="{reload: true, notify: true}" ng-attr-target="{{undefined}}" id="menu_admin_viewSystemUsers" class="waves-effect waves-orange"><span class="material-icons left-menu-icon"></span><span class="left-menu-title">Users</span><span class="material-icons collapsible-indicator"></span></a></li><li class="level3"><a href="#/admin/user_roles" ui-sref="admin.user_roles" ui-sref-opts="{reload: true, notify: true}" ng-attr-target="{{undefined}}" id="menu_admin_viewUserRoles" class="waves-effect waves-orange"><span class="material-icons left-menu-icon"></span><span class="left-menu-title">User Roles</span><span class="material-icons collapsible-indicator"></span></a></li></ul></div></li><li id="menu_admin_Job" class="level2 no-padding parent"><a class="collapsible-header waves-effect waves-orange"><span class="material-icons left-menu-icon"></span><span class="left-menu-title">Job</span><span class="material-icons collapsible-indicator"></span></a><div class="collapsible-body" style=""><ul class="collapsible collapsible-accordion"><li class="level3"><a href="#/admin/job_titles" ui-sref="admin.job_titles" ui-sref-opts="{reload: true, notify: true}" ng-attr-target="{{undefined}}" id="menu_admin_viewJobTitleList" class="waves-effect waves-orange"><span class="material-icons left-menu-icon"></span><span class="left-menu-title">Job Titles</span><span class="material-icons collapsible-indicator"></span></a></li><li class="level3"><a href="#/admin/salary_components" ui-sref="admin.salary_components" ui-sref-opts="{reload: true, notify: true}" ng-attr-target="{{undefined}}" id="menu_admin_viewSalaryComponentList" class="waves-effect waves-orange"><span class="material-icons left-menu-icon"></span><span class="left-menu-title">Salary Components</span><span class="material-icons collapsible-indicator"></span></a></li><li class="level3"><a href="#/admin/pay_grades" ui-sref="admin.pay_grades" ui-sref-opts="{reload: true, notify: true}" ng-attr-target="{{undefined}}" id="menu_admin_viewPayGrades" class="waves-effect waves-orange"><span class="material-icons left-menu-icon"></span><span class="left-menu-title">Pay Grades</span><span class="material-icons collapsible-indicator"></span></a></li><li class="level3"><a href="#/admin/employment_status" ui-sref="admin.employment_status" ui-sref-opts="{reload: true, notify: true}" ng-attr-target="{{undefined}}" id="menu_admin_employmentStatus" class="waves-effect waves-orange"><span class="material-icons left-menu-icon"></span><span class="left-menu-title">Employment Status</span><span class="material-icons collapsible-indicator"></span></a></li><li class="level3"><a href="#/admin/jobcategories" ui-sref="admin.jobcategories" ui-sref-opts="{reload: true, notify: true}" ng-attr-target="{{undefined}}" id="menu_admin_jobCategory" class="waves-effect waves-orange"><span class="material-icons left-menu-icon"></span><span class="left-menu-title">Job Categories</span><span class="material-icons collapsible-indicator"></span></a></li><li class="level3"><a href="#/admin/work_shifts" ui-sref="admin.work_shifts" ui-sref-opts="{reload: true, notify: true}" ng-attr-target="{{undefined}}" id="menu_admin_workShift" class="waves-effect waves-orange"><span class="material-icons left-menu-icon"></span><span class="left-menu-title">Work Shifts</span><span class="material-icons collapsible-indicator"></span></a></li></ul></div></li><li id="menu_admin_Organization" class="level2 no-padding parent"><a class="collapsible-header waves-effect waves-orange"><span class="material-icons left-menu-icon"></span><span class="left-menu-title">Organization</span><span class="material-icons collapsible-indicator"></span></a><div class="collapsible-body" style=""><ul class="collapsible collapsible-accordion"><li class="level3"><a href="#/admin/organization_general_information" ui-sref="admin.organization_general_information" ui-sref-opts="{reload: true, notify: true}" ng-attr-target="{{undefined}}" id="menu_admin_viewOrganizationGeneralInformation" class="waves-effect waves-orange"><span class="material-icons left-menu-icon"></span><span class="left-menu-title">General Information</span><span class="material-icons collapsible-indicator"></span></a></li><li class="level3"><a href="#/admin/locations" ui-sref="admin.locations" ui-sref-opts="{reload: true, notify: true}" ng-attr-target="{{undefined}}" id="menu_admin_viewLocations" class="waves-effect waves-orange"><span class="material-icons left-menu-icon"></span><span class="left-menu-title">Locations</span><span class="material-icons collapsible-indicator"></span></a></li><li class="level3"><a href="#/admin/company_structure" ui-sref="admin.company_structure" ui-sref-opts="{reload: true, notify: true}" ng-attr-target="{{undefined}}" id="menu_admin_viewCompanyStructure" class="waves-effect waves-orange"><span class="material-icons left-menu-icon"></span><span class="left-menu-title">Structure</span><span class="material-icons collapsible-indicator"></span></a></li><li class="level3"><a href="#/admin/cost_centres" ui-sref="admin.costCentres" ui-sref-opts="{reload: true, notify: true}" ng-attr-target="{{undefined}}" id="menu_admin_viewCostCentreList" class="waves-effect waves-orange"><span class="material-icons left-menu-icon"></span><span class="left-menu-title">Cost Centers</span><span class="material-icons collapsible-indicator"></span></a></li><li class="level3"><a href="#/admin/eeo_filling" ui-sref="admin.processEEOFilling" ui-sref-opts="{reload: true, notify: true}" ng-attr-target="{{undefined}}" id="menu_admin_processEEOFilling" class="waves-effect waves-orange"><span class="material-icons left-menu-icon"></span><span class="left-menu-title">Process EEO Filing</span><span class="material-icons collapsible-indicator"></span></a></li></ul></div></li><li id="menu_admin_Competencies" class="level2 no-padding parent"><a class="collapsible-header waves-effect waves-orange"><span class="material-icons left-menu-icon"></span><span class="left-menu-title">Competencies</span><span class="material-icons collapsible-indicator"></span></a><div class="collapsible-body" style=""><ul class="collapsible collapsible-accordion"><li class="level3"><a href="/client/#/noncore/admin/getEmployeeCompetencyList" id="menu_admin_getEmployeeCompetencyList" class="waves-effect waves-orange"><span class="material-icons left-menu-icon"></span><span class="left-menu-title">Competency List</span><span class="material-icons collapsible-indicator"></span></a></li></ul></div></li><li id="menu_admin_Qualifications" class="level2 no-padding parent"><a class="collapsible-header waves-effect waves-orange"><span class="material-icons left-menu-icon"></span><span class="left-menu-title">Qualifications</span><span class="material-icons collapsible-indicator"></span></a><div class="collapsible-body" style=""><ul class="collapsible collapsible-accordion"><li class="level3"><a href="#/admin/skills" ui-sref="admin.skills" ui-sref-opts="{reload: true, notify: true}" ng-attr-target="{{undefined}}" id="menu_admin_viewSkills" class="waves-effect waves-orange"><span class="material-icons left-menu-icon"></span><span class="left-menu-title">Skills</span><span class="material-icons collapsible-indicator"></span></a></li><li class="level3"><a href="#/admin/education" ui-sref="admin.education" ui-sref-opts="{reload: true, notify: true}" ng-attr-target="{{undefined}}" id="menu_admin_viewEducation" class="waves-effect waves-orange"><span class="material-icons left-menu-icon"></span><span class="left-menu-title">Education</span><span class="material-icons collapsible-indicator"></span></a></li><li class="level3"><a href="#/admin/licenses" ui-sref="admin.licenses" ui-sref-opts="{reload: true, notify: true}" ng-attr-target="{{undefined}}" id="menu_admin_viewLicenses" class="waves-effect waves-orange"><span class="material-icons left-menu-icon"></span><span class="left-menu-title">Licenses</span><span class="material-icons collapsible-indicator"></span></a></li><li class="level3"><a href="#/admin/languages" ui-sref="admin.languages" ui-sref-opts="{reload: true, notify: true}" ng-attr-target="{{undefined}}" id="menu_admin_viewLanguages" class="waves-effect waves-orange"><span class="material-icons left-menu-icon"></span><span class="left-menu-title">Languages</span><span class="material-icons collapsible-indicator"></span></a></li><li class="level3"><a href="#/admin/memberships" ui-sref="admin.memberships" ui-sref-opts="{reload: true, notify: true}" ng-attr-target="{{undefined}}" id="menu_admin_membership" class="waves-effect waves-orange"><span class="material-icons left-menu-icon"></span><span class="left-menu-title">Memberships</span><span class="material-icons collapsible-indicator"></span></a></li></ul></div></li><li class="level2"><a href="#/admin/nationalities" ui-sref="admin.nationalities" ui-sref-opts="{reload: true, notify: true}" ng-attr-target="{{undefined}}" id="menu_admin_nationality" class="waves-effect waves-orange"><span class="material-icons left-menu-icon"></span><span class="left-menu-title">Nationalities</span><span class="material-icons collapsible-indicator"></span></a></li><li id="menu_news_Announcements" class="level2 no-padding parent"><a class="collapsible-header waves-effect waves-orange"><span class="material-icons left-menu-icon"></span><span class="left-menu-title">Announcements</span><span class="material-icons collapsible-indicator"></span></a><div class="collapsible-body" style=""><ul class="collapsible collapsible-accordion"><li class="level3"><a href="/client/#/noncore/news/viewNewsList" id="menu_news_viewNewsList" class="waves-effect waves-orange"><span class="material-icons left-menu-icon"></span><span class="left-menu-title">News</span><span class="material-icons collapsible-indicator"></span></a></li><li class="level3"><a href="/client/#/noncore/news/viewDocumentList" id="menu_news_viewDocumentList" class="waves-effect waves-orange"><span class="material-icons left-menu-icon"></span><span class="left-menu-title">Documents</span><span class="material-icons collapsible-indicator"></span></a></li><li class="level3"><a href="/client/#/noncore/news/viewCategoryList" id="menu_news_viewCategoryList" class="waves-effect waves-orange"><span class="material-icons left-menu-icon"></span><span class="left-menu-title">Document Categories</span><span class="material-icons collapsible-indicator"></span></a></li></ul></div></li><li id="menu_admin_Configuration" class="level2 no-padding parent"><a class="collapsible-header waves-effect waves-orange"><span class="material-icons left-menu-icon"></span><span class="left-menu-title">Configuration</span><span class="material-icons collapsible-indicator"></span></a><div class="collapsible-body" style=""><ul class="collapsible collapsible-accordion"><li class="level3"><a href="#/admin/mail_configuration" ui-sref="admin.mail_configuration" ui-sref-opts="{reload: true, notify: true}" ng-attr-target="{{undefined}}" id="menu_admin_listMailConfiguration" class="waves-effect waves-orange"><span class="material-icons left-menu-icon"></span><span class="left-menu-title">Email Settings</span><span class="material-icons collapsible-indicator"></span></a></li><li class="level3"><a href="#/admin/email_subscriptions" ui-sref="admin.email_subscriptions" ui-sref-opts="{reload: true, notify: true}" ng-attr-target="{{undefined}}" id="menu_admin_viewEmailNotification" class="waves-effect waves-orange"><span class="material-icons left-menu-icon"></span><span class="left-menu-title">Email Notifications</span><span class="material-icons collapsible-indicator"></span></a></li><li class="level3"><a href="#/admin/localization" ui-sref="admin.localization" ui-sref-opts="{reload: true, notify: true}" ng-attr-target="{{undefined}}" id="menu_admin_localization" class="waves-effect waves-orange"><span class="material-icons left-menu-icon"></span><span class="left-menu-title">Localization</span><span class="material-icons collapsible-indicator"></span></a></li><li class="level3"><a href="#/admin/default_authentication_settings" ui-sref="admin.default_authentication_settings" ui-sref-opts="{reload: true, notify: true}" ng-attr-target="{{undefined}}" id="menu_admin_authenticationConfiguration" class="waves-effect waves-orange"><span class="material-icons left-menu-icon"></span><span class="left-menu-title">Authentication</span><span class="material-icons collapsible-indicator"></span></a></li><li class="level3"><a href="/client/#/noncore/admin/viewDirectoryConfig" id="menu_admin_viewDirectoryConfig" class="waves-effect waves-orange"><span class="material-icons left-menu-icon"></span><span class="left-menu-title">Directory Configuration</span><span class="material-icons collapsible-indicator"></span></a></li><li class="level3"><a href="#/admin/canned_reports" ui-sref="admin.canned_reports" ui-sref-opts="{reload: true, notify: true}" ng-attr-target="{{undefined}}" id="menu_admin_viewCannedReports" class="waves-effect waves-orange"><span class="material-icons left-menu-icon"></span><span class="left-menu-title">Canned Reports</span><span class="material-icons collapsible-indicator"></span></a></li><li class="level3"><a href="/client/#/noncore/admin/themeBuilder" id="menu_admin_themeBuilder" class="waves-effect waves-orange"><span class="material-icons left-menu-icon"></span><span class="left-menu-title">Theme Colors</span><span class="material-icons collapsible-indicator"></span></a></li><li class="level3"><a href="/client/#/noncore/admin/imageUploader" id="menu_admin_imageUploader" class="waves-effect waves-orange"><span class="material-icons left-menu-icon"></span><span class="left-menu-title">Theme Images</span><span class="material-icons collapsible-indicator"></span></a></li></ul></div></li><li class="level2"><a href="#/admin/auditTrail" ui-sref="admin.auditTrail" ui-sref-opts="{reload: true, notify: true}" ng-attr-target="{{undefined}}" id="menu_audittrail_viewAuditTrail" class="waves-effect waves-orange"><span class="material-icons left-menu-icon"></span><span class="left-menu-title">Audit Trail</span><span class="material-icons collapsible-indicator"></span></a></li></ul></div></li><li id="menu_pim_viewPimModule" class="level1 pim no-padding parent"><a class="collapsible-header waves-effect waves-orange"><span class="material-icons left-menu-icon"></span><span class="left-menu-title">PIM</span><span class="material-icons collapsible-indicator"></span></a><div class="collapsible-body" style=""><ul class="collapsible collapsible-accordion"><li id="menu_pim_Configuration" class="level2 no-padding parent"><a class="collapsible-header waves-effect waves-orange"><span class="material-icons left-menu-icon"></span><span class="left-menu-title">Configuration</span><span class="material-icons collapsible-indicator"></span></a><div class="collapsible-body" style=""><ul class="collapsible collapsible-accordion"><li class="level3"><a href="#/pim/optional_fields" ui-sref="pim.optional_fields" ui-sref-opts="{reload: true, notify: true}" ng-attr-target="{{undefined}}" id="menu_pim_configurePim" class="waves-effect waves-orange"><span class="material-icons left-menu-icon"></span><span class="left-menu-title">Optional Fields</span><span class="material-icons collapsible-indicator"></span></a></li><li class="level3"><a href="#/pim/custom_field_sections" ui-sref="pim.custom_field_sections" ui-sref-opts="{reload: true, notify: true}" ng-attr-target="{{undefined}}" id="menu_pim_viewCustomFieldSectionList" class="waves-effect waves-orange"><span class="material-icons left-menu-icon"></span><span class="left-menu-title">Custom Fields</span><span class="material-icons collapsible-indicator"></span></a></li><li class="level3"><a href="#/pim/reporting_methods" ui-sref="pim.reporting_methods" ui-sref-opts="{reload: true, notify: true}" ng-attr-target="{{undefined}}" id="menu_pim_viewReportingMethods" class="waves-effect waves-orange"><span class="material-icons left-menu-icon"></span><span class="left-menu-title">Reporting Methods</span><span class="material-icons collapsible-indicator"></span></a></li><li class="level3"><a href="#/pim/configure_employee_wizard" ui-sref="pim.configure_employee_wizard" ui-sref-opts="{reload: true, notify: true}" ng-attr-target="{{undefined}}" id="menu_pim_pimFieldConfiguration" class="waves-effect waves-orange"><span class="material-icons left-menu-icon"></span><span class="left-menu-title">Add Employee Wizard</span><span class="material-icons collapsible-indicator"></span></a></li><li class="level3"><a href="#/pim/termination_reasons" ui-sref="pim.termination_reasons" ui-sref-opts="{reload: true, notify: true}" ng-attr-target="{{undefined}}" id="menu_pim_viewTerminationReasons" class="waves-effect waves-orange"><span class="material-icons left-menu-icon"></span><span class="left-menu-title">Termination Reasons</span><span class="material-icons collapsible-indicator"></span></a></li><li class="level3"><a href="#/pim/document_templates" ui-sref="pim.document_templates" ui-sref-opts="{reload: true, notify: true}" ng-attr-target="{{undefined}}" id="menu_pim_viewPIMDocumentTemplates" class="waves-effect waves-orange"><span class="material-icons left-menu-icon"></span><span class="left-menu-title">Document Templates</span><span class="material-icons collapsible-indicator"></span></a></li></ul></div></li><li class="level2"><a href="#/pim/employees" ui-sref="pim.employees({&quot;filterParameters&quot;:null,&quot;calledFromMyShortcuts&quot;:null})" ui-sref-opts="{reload: true, notify: true}" ng-attr-target="{{undefined}}" id="menu_pim_viewEmployeeList" class="waves-effect waves-orange"><span class="material-icons left-menu-icon"></span><span class="left-menu-title">Employee List</span><span class="material-icons collapsible-indicator"></span></a></li><li class="level2"><a href="#/pim/addEmployee" ui-sref="pim.add_employee" ui-sref-opts="{reload: true, notify: true}" ng-attr-target="{{undefined}}" id="menu_pim_addEmployee" class="waves-effect waves-orange"><span class="material-icons left-menu-icon"></span><span class="left-menu-title">Add Employee</span><span class="material-icons collapsible-indicator"></span></a></li><li class="level2"><a href="#/reports/pim/pim_reports" ui-sref="reports({&quot;module&quot;: &quot;pim&quot;, &quot;templateName&quot;: &quot;PIM_Report_template&quot;, &quot;dataGroup&quot;: &quot;pim_reports&quot;})" ui-sref-opts="{reload: true, notify: true}" ng-attr-target="{{undefined}}" id="menu_pim_viewPimDefinedPredefinedReports" class="waves-effect waves-orange"><span class="material-icons left-menu-icon"></span><span class="left-menu-title">Reports</span><span class="material-icons collapsible-indicator"></span></a></li><li id="menu_admin_ManageData" class="level2 no-padding parent"><a class="collapsible-header waves-effect waves-orange"><span class="material-icons left-menu-icon"></span><span class="left-menu-title">Manage Data</span><span class="material-icons collapsible-indicator"></span></a><div class="collapsible-body" style=""><ul class="collapsible collapsible-accordion"><li class="level3"><a href="#/pim/data_import" ui-sref="pim.data_import" ui-sref-opts="{reload: true, notify: true}" ng-attr-target="{{undefined}}" id="menu_admin_pimCsvImport" class="waves-effect waves-orange"><span class="material-icons left-menu-icon"></span><span class="left-menu-title">Data Import</span><span class="material-icons collapsible-indicator"></span></a></li><li class="level3"><a href="#/pim/bulk_update" ui-sref="pim.bulk_update" ui-sref-opts="{reload: true, notify: true}" ng-attr-target="{{undefined}}" id="menu_pim_viewBulkUpdater" class="waves-effect waves-orange"><span class="material-icons left-menu-icon"></span><span class="left-menu-title">Bulk Update</span><span class="material-icons collapsible-indicator"></span></a></li><li class="level3"><a href="/client/#/noncore/pim/manageDataEmployeeInformationReport" id="menu_pim_manageDataEmployeeInformationReport" class="waves-effect waves-orange"><span class="material-icons left-menu-icon"></span><span class="left-menu-title">Employee Data Export</span><span class="material-icons collapsible-indicator"></span></a></li></ul></div></li></ul></div></li><li class="level1 my_info"><a href="#/pim/my_info" ui-sref="pim.my_info" ui-sref-opts="{reload: true, notify: true}" ng-attr-target="{{undefined}}" id="menu_pim_viewMyDetails" class="waves-effect waves-orange"><span class="material-icons left-menu-icon"></span><span class="left-menu-title">My Info</span><span class="material-icons collapsible-indicator"></span></a></li><li id="menu_leave_viewLeaveModule" class="level1 leave no-padding parent"><a class="collapsible-header waves-effect waves-orange"><span class="material-icons left-menu-icon"></span><span class="left-menu-title">Leave</span><span class="material-icons collapsible-indicator"></span></a><div class="collapsible-body" style=""><ul class="collapsible collapsible-accordion"><li class="level2"><a href="#/leave/apply" ui-sref="leave.apply" ui-sref-opts="{reload: true, notify: true}" ng-attr-target="{{undefined}}" id="menu_leave_applyLeave" class="waves-effect waves-orange"><span class="material-icons left-menu-icon"></span><span class="left-menu-title">Apply</span><span class="material-icons collapsible-indicator"></span></a></li><li class="level2"><a href="#/leave/view_my_leave_list" ui-sref="leave.view_my_leave_list" ui-sref-opts="{reload: true, notify: true}" ng-attr-target="{{undefined}}" id="menu_leave_viewMyLeaveList" class="waves-effect waves-orange"><span class="material-icons left-menu-icon"></span><span class="left-menu-title">My Leave</span><span class="material-icons collapsible-indicator"></span></a></li><li id="menu_leave_Entitlements" class="level2 no-padding parent"><a class="collapsible-header waves-effect waves-orange"><span class="material-icons left-menu-icon"></span><span class="left-menu-title">Entitlements</span><span class="material-icons collapsible-indicator"></span></a><div class="collapsible-body" style=""><ul class="collapsible collapsible-accordion"><li class="level3"><a href="#/leave/add_leave_entitlement" ui-sref="leave.add_leave_entitlement" ui-sref-opts="{reload: true, notify: true}" ng-attr-target="{{undefined}}" id="menu_leave_addLeaveEntitlement" class="waves-effect waves-orange"><span class="material-icons left-menu-icon"></span><span class="left-menu-title">Add Entitlements</span><span class="material-icons collapsible-indicator"></span></a></li><li class="level3"><a href="#/leave/view_leave_entitlement" ui-sref="leave.view_leave_entitlement({&quot;id&quot;:null,&quot;employeeId&quot;:null,&quot;leaveTypeId&quot;:null,&quot;from&quot;:null,&quot;to&quot;:null})" ui-sref-opts="{reload: true, notify: true}" ng-attr-target="{{undefined}}" id="menu_leave_viewLeaveEntitlements" class="waves-effect waves-orange"><span class="material-icons left-menu-icon"></span><span class="left-menu-title">Entitlement List</span><span class="material-icons collapsible-indicator"></span></a></li><li class="level3"><a href="#/leave/view_my_leave_entitlement" ui-sref="leave.view_my_leave_entitlement" ui-sref-opts="{reload: true, notify: true}" ng-attr-target="{{undefined}}" id="menu_leave_viewMyLeaveEntitlements" class="waves-effect waves-orange"><span class="material-icons left-menu-icon"></span><span class="left-menu-title">My Entitlements</span><span class="material-icons collapsible-indicator"></span></a></li></ul></div></li><li id="menu_leave_Reports" class="level2 no-padding parent"><a class="collapsible-header waves-effect waves-orange"><span class="material-icons left-menu-icon"></span><span class="left-menu-title">Reports</span><span class="material-icons collapsible-indicator"></span></a><div class="collapsible-body" style=""><ul class="collapsible collapsible-accordion"><li class="level3"><a href="#/leave/balance_report" ui-sref="leave.balance_report" ui-sref-opts="{reload: true, notify: true}" ng-attr-target="{{undefined}}" id="menu_leave_viewLeaveBalanceReport" class="waves-effect waves-orange"><span class="material-icons left-menu-icon"></span><span class="left-menu-title">Leave Usage</span><span class="material-icons collapsible-indicator"></span></a></li><li class="level3"><a href="#/leave/my_balance_report" ui-sref="leave.my_balance_report" ui-sref-opts="{reload: true, notify: true}" ng-attr-target="{{undefined}}" id="menu_leave_viewMyLeaveBalanceReport" class="waves-effect waves-orange"><span class="material-icons left-menu-icon"></span><span class="left-menu-title">My Leave Usage</span><span class="material-icons collapsible-indicator"></span></a></li><li class="level3"><a href="#/report/////Bradford_Factor_Report" ui-sref="report_view({&quot;id&quot;: &quot;Bradford_Factor_Report&quot;, &quot;filters&quot;: null})" ui-sref-opts="{reload: true, notify: true}" ng-attr-target="{{undefined}}" id="menu_leave_viewBradfordFactorReport" class="waves-effect waves-orange"><span class="material-icons left-menu-icon"></span><span class="left-menu-title">Bradford Factor</span><span class="material-icons collapsible-indicator"></span></a></li></ul></div></li><li id="menu_leave_Configure" class="level2 no-padding parent"><a class="collapsible-header waves-effect waves-orange"><span class="material-icons left-menu-icon"></span><span class="left-menu-title">Configure</span><span class="material-icons collapsible-indicator"></span></a><div class="collapsible-body" style=""><ul class="collapsible collapsible-accordion"><li class="level3"><a href="#/leave/define_leave_period" ui-sref="leave.define_leave_period" ui-sref-opts="{reload: true, notify: true}" ng-attr-target="{{undefined}}" id="menu_leave_defineLeavePeriod" class="waves-effect waves-orange"><span class="material-icons left-menu-icon"></span><span class="left-menu-title">Leave Period</span><span class="material-icons collapsible-indicator"></span></a></li><li class="level3"><a href="#/leave/leave_type_list" ui-sref="leave.leave_type_list" ui-sref-opts="{reload: true, notify: true}" ng-attr-target="{{undefined}}" id="menu_leave_leaveTypeList" class="waves-effect waves-orange"><span class="material-icons left-menu-icon"></span><span class="left-menu-title">Leave Types</span><span class="material-icons collapsible-indicator"></span></a></li><li class="level3"><a href="#/leave/define_work_week" ui-sref="leave.define_work_week" ui-sref-opts="{reload: true, notify: true}" ng-attr-target="{{undefined}}" id="menu_leave_defineWorkWeek" class="waves-effect waves-orange"><span class="material-icons left-menu-icon"></span><span class="left-menu-title">Work Week</span><span class="material-icons collapsible-indicator"></span></a></li><li class="level3"><a href="#/leave/holidays" ui-sref="leave.holidays" ui-sref-opts="{reload: true, notify: true}" ng-attr-target="{{undefined}}" id="menu_leave_viewHolidayList" class="waves-effect waves-orange"><span class="material-icons left-menu-icon"></span><span class="left-menu-title">Holidays</span><span class="material-icons collapsible-indicator"></span></a></li><li class="level3"><a href="/client/#/noncore/leave/bradfordFactorThreshold" id="menu_leave_bradfordFactorThreshold" class="waves-effect waves-orange"><span class="material-icons left-menu-icon"></span><span class="left-menu-title">Bradford Factor Threshold</span><span class="material-icons collapsible-indicator"></span></a></li><li class="level3"><a href="/client/#/noncore/leave/viewWorkingWeekendList" id="menu_leave_viewWorkingWeekendList" class="waves-effect waves-orange"><span class="material-icons left-menu-icon"></span><span class="left-menu-title">Working Weekends</span><span class="material-icons collapsible-indicator"></span></a></li><li class="level3"><a href="#/leave/notifications" ui-sref="leave.notifications" ui-sref-opts="{reload: true, notify: true}" ng-attr-target="{{undefined}}" id="menu_leave_viewLeaveNotifications" class="waves-effect waves-orange"><span class="material-icons left-menu-icon"></span><span class="left-menu-title">Notifications</span><span class="material-icons collapsible-indicator"></span></a></li><li class="level3"><a href="#/leave/calendar_configuration" ui-sref="leave.calendar_configuration" ui-sref-opts="{reload: true, notify: true}" ng-attr-target="{{undefined}}" id="menu_leave_leaveCalendarConfiguration" class="waves-effect waves-orange"><span class="material-icons left-menu-icon"></span><span class="left-menu-title">Leave Calendar</span><span class="material-icons collapsible-indicator"></span></a></li></ul></div></li><li class="level2"><a href="#/leave/view_leave_list" ui-sref="leave.view_leave_list({&quot;filter&quot;:null})" ui-sref-opts="{reload: true, notify: true}" ng-attr-target="{{undefined}}" id="menu_leave_viewLeaveList" class="waves-effect waves-orange"><span class="material-icons left-menu-icon"></span><span class="left-menu-title">Leave List</span><span class="material-icons collapsible-indicator"></span></a></li><li class="level2"><a href="#/leave/assign" ui-sref="leave.assign" ui-sref-opts="{reload: true, notify: true}" ng-attr-target="{{undefined}}" id="menu_leave_assignLeave" class="waves-effect waves-orange"><span class="material-icons left-menu-icon"></span><span class="left-menu-title">Assign Leave</span><span class="material-icons collapsible-indicator"></span></a></li><li class="level2"><a href="#/leave/calendar" ui-sref="leave.calendar" ui-sref-opts="{reload: true, notify: true}" ng-attr-target="{{undefined}}" id="menu_leave_calendar" class="waves-effect waves-orange"><span class="material-icons left-menu-icon"></span><span class="left-menu-title">Leave Calendar</span><span class="material-icons collapsible-indicator"></span></a></li><li class="level2"><a href="#/leave/bulk-assign" ui-sref="leave.bulk_assign" ui-sref-opts="{reload: true, notify: true}" ng-attr-target="{{undefined}}" id="menu_leave_bulkAssignLeave" class="waves-effect waves-orange"><span class="material-icons left-menu-icon"></span><span class="left-menu-title">Bulk Assign</span><span class="material-icons collapsible-indicator"></span></a></li></ul></div></li><li id="menu_time_viewTimeModule" class="level1 time no-padding parent"><a class="collapsible-header waves-effect waves-orange"><span class="material-icons left-menu-icon"></span><span class="left-menu-title">Time</span><span class="material-icons collapsible-indicator"></span></a><div class="collapsible-body" style=""><ul class="collapsible collapsible-accordion"><li id="menu_time_Timesheets" class="level2 no-padding parent"><a class="collapsible-header waves-effect waves-orange"><span class="material-icons left-menu-icon"></span><span class="left-menu-title">Timesheets</span><span class="material-icons collapsible-indicator"></span></a><div class="collapsible-body" style=""><ul class="collapsible collapsible-accordion"><li class="level3"><a href="/client/#/noncore/time/viewMyTimesheet" id="menu_time_viewMyTimesheet" class="waves-effect waves-orange"><span class="material-icons left-menu-icon"></span><span class="left-menu-title">My Timesheets</span><span class="material-icons collapsible-indicator"></span></a></li><li class="level3"><a href="/client/#/noncore/time/viewEmployeeTimesheet" id="menu_time_viewEmployeeTimesheet" class="waves-effect waves-orange"><span class="material-icons left-menu-icon"></span><span class="left-menu-title">Employee Timesheets</span><span class="material-icons collapsible-indicator"></span></a></li><li class="level3"><a href="/client/#/noncore/time/viewTimesheetCsvExtract" id="menu_time_viewTimesheetCsvExtract" class="waves-effect waves-orange"><span class="material-icons left-menu-icon"></span><span class="left-menu-title">Export To CSV</span><span class="material-icons collapsible-indicator"></span></a></li></ul></div></li><li id="menu_attendance_Attendance" class="level2 no-padding parent"><a class="collapsible-header waves-effect waves-orange"><span class="material-icons left-menu-icon"></span><span class="left-menu-title">Attendance</span><span class="material-icons collapsible-indicator"></span></a><div class="collapsible-body" style=""><ul class="collapsible collapsible-accordion"><li class="level3"><a href="/client/#/noncore/attendance/viewMyAttendanceRecord" id="menu_attendance_viewMyAttendanceRecord" class="waves-effect waves-orange"><span class="material-icons left-menu-icon"></span><span class="left-menu-title">My Records</span><span class="material-icons collapsible-indicator"></span></a></li><li class="level3"><a href="/client/#/noncore/attendance/punchIn" id="menu_attendance_punchIn" class="waves-effect waves-orange"><span class="material-icons left-menu-icon"></span><span class="left-menu-title">Punch In/Out</span><span class="material-icons collapsible-indicator"></span></a></li><li class="level3"><a href="/client/#/noncore/attendance/viewAttendanceRecord" id="menu_attendance_viewAttendanceRecord" class="waves-effect waves-orange"><span class="material-icons left-menu-icon"></span><span class="left-menu-title">Employee Records</span><span class="material-icons collapsible-indicator"></span></a></li><li class="level3"><a href="/client/#/noncore/attendance/configure" id="menu_attendance_configure" class="waves-effect waves-orange"><span class="material-icons left-menu-icon"></span><span class="left-menu-title">Configuration</span><span class="material-icons collapsible-indicator"></span></a></li><li class="level3"><a href="/client/#/noncore/attendance/viewAttendanceDataExtract" id="menu_attendance_viewAttendanceDataExtract" class="waves-effect waves-orange"><span class="material-icons left-menu-icon"></span><span class="left-menu-title">Export To CSV</span><span class="material-icons collapsible-indicator"></span></a></li><li class="level3"><a href="/client/#/noncore/attendance/AttendanceFileUpload" id="menu_attendance_AttendanceFileUpload" class="waves-effect waves-orange"><span class="material-icons left-menu-icon"></span><span class="left-menu-title">Data Upload</span><span class="material-icons collapsible-indicator"></span></a></li></ul></div></li><li id="menu_time_Reports" class="level2 no-padding parent"><a class="collapsible-header waves-effect waves-orange"><span class="material-icons left-menu-icon"></span><span class="left-menu-title">Reports</span><span class="material-icons collapsible-indicator"></span></a><div class="collapsible-body" style=""><ul class="collapsible collapsible-accordion"><li class="level3"><a href="/client/#/noncore/time/displayProjectReportCriteria/?reportId=1" id="menu_time_displayProjectReportCriteria" class="waves-effect waves-orange"><span class="material-icons left-menu-icon"></span><span class="left-menu-title">Project Reports</span><span class="material-icons collapsible-indicator"></span></a></li><li class="level3"><a href="/client/#/noncore/time/displayEmployeeReportCriteria/?reportId=2" id="menu_time_displayEmployeeReportCriteria" class="waves-effect waves-orange"><span class="material-icons left-menu-icon"></span><span class="left-menu-title">Employee Reports</span><span class="material-icons collapsible-indicator"></span></a></li><li class="level3"><a href="/client/#/noncore/time/displayAttendanceSummaryReportCriteria/?reportId=4" id="menu_time_displayAttendanceSummaryReportCriteria" class="waves-effect waves-orange"><span class="material-icons left-menu-icon"></span><span class="left-menu-title">Attendance Summary</span><span class="material-icons collapsible-indicator"></span></a></li><li class="level3"><a href="/client/#/noncore/time/displayAttendanceDetailsReport/reset/1" id="menu_time_displayAttendanceDetailsReport" class="waves-effect waves-orange"><span class="material-icons left-menu-icon"></span><span class="left-menu-title">Monthly Attendance</span><span class="material-icons collapsible-indicator"></span></a></li><li class="level3"><a href="/client/#/noncore/time/displayMyAttendanceDetailsReport" id="menu_time_displayMyAttendanceDetailsReport" class="waves-effect waves-orange"><span class="material-icons left-menu-icon"></span><span class="left-menu-title">My Monthly Attendance</span><span class="material-icons collapsible-indicator"></span></a></li></ul></div></li><li id="menu_time_ProjectInfo" class="level2 no-padding parent"><a class="collapsible-header waves-effect waves-orange"><span class="material-icons left-menu-icon"></span><span class="left-menu-title">Project Info</span><span class="material-icons collapsible-indicator"></span></a><div class="collapsible-body" style=""><ul class="collapsible collapsible-accordion"><li class="level3"><a href="/client/#/noncore/time/viewCustomers" id="menu_time_viewCustomers" class="waves-effect waves-orange"><span class="material-icons left-menu-icon"></span><span class="left-menu-title">Customers</span><span class="material-icons collapsible-indicator"></span></a></li><li class="level3"><a href="/client/#/noncore/time/viewProjects" id="menu_time_viewProjects" class="waves-effect waves-orange"><span class="material-icons left-menu-icon"></span><span class="left-menu-title">Projects</span><span class="material-icons collapsible-indicator"></span></a></li></ul></div></li></ul></div></li><li class="level1 recruitment"><a href="/client/#/noncore/recruitment/viewRecruitmentModule" id="menu_recruitment_viewRecruitmentModule" class="waves-effect waves-orange"><span class="material-icons left-menu-icon"></span><span class="left-menu-title">Recruitment</span><span class="material-icons collapsible-indicator"></span></a></li><li id="menu_discipline_defaultDisciplinaryView" class="level1 discipline no-padding parent"><a class="collapsible-header waves-effect waves-orange"><span class="material-icons left-menu-icon"></span><span class="left-menu-title">Discipline</span><span class="material-icons collapsible-indicator"></span></a><div class="collapsible-body" style=""><ul class="collapsible collapsible-accordion"><li class="level2"><a href="/client/#/noncore/discipline/viewDisciplinaryCases" id="menu_discipline_viewDisciplinaryCases" class="waves-effect waves-orange"><span class="material-icons left-menu-icon"></span><span class="left-menu-title">Disciplinary Cases</span><span class="material-icons collapsible-indicator"></span></a></li><li class="level2"><a href="/client/#/noncore/discipline/viewMyActions" id="menu_discipline_viewMyActions" class="waves-effect waves-orange"><span class="material-icons left-menu-icon"></span><span class="left-menu-title">My Actions</span><span class="material-icons collapsible-indicator"></span></a></li><li id="menu_discipline_Configuration" class="level2 no-padding parent"><a class="collapsible-header waves-effect waves-orange"><span class="material-icons left-menu-icon"></span><span class="left-menu-title">Configuration</span><span class="material-icons collapsible-indicator"></span></a><div class="collapsible-body" style=""><ul class="collapsible collapsible-accordion"><li class="level3"><a href="/client/#/noncore/discipline/viewDisciplinaryDocumentTemplates" id="menu_discipline_viewDisciplinaryDocumentTemplates" class="waves-effect waves-orange"><span class="material-icons left-menu-icon"></span><span class="left-menu-title">Document Templates</span><span class="material-icons collapsible-indicator"></span></a></li></ul></div></li></ul></div></li><li id="menu_training_defaultTrainingModulePage" class="level1 training no-padding parent"><a class="collapsible-header waves-effect waves-orange"><span class="material-icons left-menu-icon"></span><span class="left-menu-title">Training</span><span class="material-icons collapsible-indicator"></span></a><div class="collapsible-body" style=""><ul class="collapsible collapsible-accordion"><li class="level2"><a href="/client/#/noncore/training/viewCourseList" id="menu_training_viewCourseList" class="waves-effect waves-orange"><span class="material-icons left-menu-icon"></span><span class="left-menu-title">Courses</span><span class="material-icons collapsible-indicator"></span></a></li><li class="level2"><a href="/client/#/noncore/training/viewSessionList" id="menu_training_viewSessionList" class="waves-effect waves-orange"><span class="material-icons left-menu-icon"></span><span class="left-menu-title">Sessions</span><span class="material-icons collapsible-indicator"></span></a></li><li class="level2"><a href="/client/#/noncore/training/viewTrainerSessionList" id="menu_training_viewTrainerSessionList" class="waves-effect waves-orange"><span class="material-icons left-menu-icon"></span><span class="left-menu-title">Training Sessions</span><span class="material-icons collapsible-indicator"></span></a></li><li class="level2"><a href="/client/#/noncore/training/viewMyTrainingSessionList" id="menu_training_viewMyTrainingSessionList" class="waves-effect waves-orange"><span class="material-icons left-menu-icon"></span><span class="left-menu-title">Participating Sessions</span><span class="material-icons collapsible-indicator"></span></a></li><li id="menu_training_viewTrainingReport" class="level2 no-padding parent"><a class="collapsible-header waves-effect waves-orange"><span class="material-icons left-menu-icon"></span><span class="left-menu-title">Reports</span><span class="material-icons collapsible-indicator"></span></a><div class="collapsible-body" style=""><ul class="collapsible collapsible-accordion"><li class="level3"><a href="#/report/////Student_Session_Information" ui-sref="report_view({&quot;id&quot;: &quot;Student_Session_Information&quot;, &quot;filters&quot;: null})" ui-sref-opts="{reload: true, notify: true}" ng-attr-target="{{undefined}}" id="menu_training_viewTrainingReport" class="waves-effect waves-orange"><span class="material-icons left-menu-icon"></span><span class="left-menu-title">Participating Session</span><span class="material-icons collapsible-indicator"></span></a></li><li class="level3"><a href="#/report/////Trainer_Session_Information" ui-sref="report_view({&quot;id&quot;: &quot;Trainer_Session_Information&quot;, &quot;filters&quot;: null})" ui-sref-opts="{reload: true, notify: true}" ng-attr-target="{{undefined}}" id="menu_training_viewTrainingReport" class="waves-effect waves-orange"><span class="material-icons left-menu-icon"></span><span class="left-menu-title">Training Session</span><span class="material-icons collapsible-indicator"></span></a></li></ul></div></li></ul></div></li><li id="menu__Performance" class="level1 performance no-padding parent"><a class="collapsible-header waves-effect waves-orange"><span class="material-icons left-menu-icon"></span><span class="left-menu-title">Performance</span><span class="material-icons collapsible-indicator"></span></a><div class="collapsible-body" style=""><ul class="collapsible collapsible-accordion"><li id="menu_performanceTracker_EmployeeTrackers" class="level2 no-padding parent"><a class="collapsible-header waves-effect waves-orange"><span class="material-icons left-menu-icon"></span><span class="left-menu-title">Employee Trackers</span><span class="material-icons collapsible-indicator"></span></a><div class="collapsible-body" style=""><ul class="collapsible collapsible-accordion"><li class="level3"><a href="/performanceTracker/viewEmployeePerformanceTrackerList" id="menu_performanceTracker_viewEmployeePerformanceTrackerList" class="waves-effect waves-orange"><span class="material-icons left-menu-icon"></span><span class="left-menu-title">Tracker List</span><span class="material-icons collapsible-indicator"></span></a></li><li class="level3"><a href="/performanceTracker/viewMyPerformanceTrackerList" id="menu_performanceTracker_viewMyPerformanceTrackerList" class="waves-effect waves-orange"><span class="material-icons left-menu-icon"></span><span class="left-menu-title">My Trackers</span><span class="material-icons collapsible-indicator"></span></a></li><li class="level3"><a href="/performanceTracker/addPerformanceTracker" id="menu_performanceTracker_addPerformanceTracker" class="waves-effect waves-orange"><span class="material-icons left-menu-icon"></span><span class="left-menu-title">Manage Trackers</span><span class="material-icons collapsible-indicator"></span></a></li></ul></div></li><li id="menu_performance_Competencies" class="level2 no-padding parent"><a class="collapsible-header waves-effect waves-orange"><span class="material-icons left-menu-icon"></span><span class="left-menu-title">Competencies</span><span class="material-icons collapsible-indicator"></span></a><div class="collapsible-body" style=""><ul class="collapsible collapsible-accordion"><li class="level3"><a href="/client/#/noncore/performance/competencyEmployeeGroups" id="menu_performance_competencyEmployeeGroups" class="waves-effect waves-orange"><span class="material-icons left-menu-icon"></span><span class="left-menu-title">Competency Mappings</span><span class="material-icons collapsible-indicator"></span></a></li></ul></div></li><li id="menu_performance_Goals" class="level2 no-padding parent"><a class="collapsible-header waves-effect waves-orange"><span class="material-icons left-menu-icon"></span><span class="left-menu-title">Goals</span><span class="material-icons collapsible-indicator"></span></a><div class="collapsible-body" style=""><ul class="collapsible collapsible-accordion"><li class="level3"><a href="/client/#/noncore/performance/myGoals" id="menu_performance_myGoals" class="waves-effect waves-orange"><span class="material-icons left-menu-icon"></span><span class="left-menu-title">My Goals</span><span class="material-icons collapsible-indicator"></span></a></li><li class="level3"><a href="/client/#/noncore/performance/viewEmployeeGoalList" id="menu_performance_viewEmployeeGoalList" class="waves-effect waves-orange"><span class="material-icons left-menu-icon"></span><span class="left-menu-title">Goal List</span><span class="material-icons collapsible-indicator"></span></a></li></ul></div></li><li id="menu_performance_Appraisals" class="level2 no-padding parent"><a class="collapsible-header waves-effect waves-orange"><span class="material-icons left-menu-icon"></span><span class="left-menu-title">Appraisals</span><span class="material-icons collapsible-indicator"></span></a><div class="collapsible-body" style=""><ul class="collapsible collapsible-accordion"><li class="level3"><a href="#/performance/appraisals_list" ui-sref="performance.view_appraisals_list" ui-sref-opts="{reload: true, notify: true}" ng-attr-target="{{undefined}}" id="menu_performance_viewAllAppraisals" class="waves-effect waves-orange"><span class="material-icons left-menu-icon"></span><span class="left-menu-title">Appraisal List</span><span class="material-icons collapsible-indicator"></span></a></li><li class="level3"><a href="#/performance/my_appraisals" ui-sref="performance.view_my_appraisals" ui-sref-opts="{reload: true, notify: true}" ng-attr-target="{{undefined}}" id="menu_performance_viewMyAppraisals" class="waves-effect waves-orange"><span class="material-icons left-menu-icon"></span><span class="left-menu-title">My Appraisals</span><span class="material-icons collapsible-indicator"></span></a></li><li class="level3"><a href="/client/#/noncore/performance/viewAppraisalCycles" id="menu_performance_viewAppraisalCycles" class="waves-effect waves-orange"><span class="material-icons left-menu-icon"></span><span class="left-menu-title">Appraisal Cycles</span><span class="material-icons collapsible-indicator"></span></a></li></ul></div></li><li id="menu_performance_Configuration" class="level2 no-padding parent"><a class="collapsible-header waves-effect waves-orange"><span class="material-icons left-menu-icon"></span><span class="left-menu-title">Configuration</span><span class="material-icons collapsible-indicator"></span></a><div class="collapsible-body" style=""><ul class="collapsible collapsible-accordion"><li class="level3"><a href="/client/#/noncore/performance/defaultAppraisalConfiguration" id="menu_performance_defaultAppraisalConfiguration" class="waves-effect waves-orange"><span class="material-icons left-menu-icon"></span><span class="left-menu-title">Appraisal</span><span class="material-icons collapsible-indicator"></span></a></li></ul></div></li><li id="menu_performance_Reports" class="level2 no-padding parent"><a class="collapsible-header waves-effect waves-orange"><span class="material-icons left-menu-icon"></span><span class="left-menu-title">Reports</span><span class="material-icons collapsible-indicator"></span></a><div class="collapsible-body" style=""><ul class="collapsible collapsible-accordion"><li class="level3"><a href="/client/#/noncore/performance/viewPerformanceReport/reportId/43" id="menu_performance_viewPerformanceReport" class="waves-effect waves-orange"><span class="material-icons left-menu-icon"></span><span class="left-menu-title">Review and Appraisal Progress</span><span class="material-icons collapsible-indicator"></span></a></li><li class="level3"><a href="/client/#/noncore/performance/viewFullComparisonReport/reportId/44" id="menu_performance_viewFullComparisonReport" class="waves-effect waves-orange"><span class="material-icons left-menu-icon"></span><span class="left-menu-title">Performance Comparison</span><span class="material-icons collapsible-indicator"></span></a></li><li class="level3"><a href="/client/#/noncore/performance/viewEmployeePerformanceProfile/reportId/45" id="menu_performance_viewEmployeePerformanceProfile" class="waves-effect waves-orange"><span class="material-icons left-menu-icon"></span><span class="left-menu-title">Performance Profile</span><span class="material-icons collapsible-indicator"></span></a></li><li class="level3"><a href="/client/#/noncore/performance/viewPerformanceProgressReport/reportId/49" id="menu_performance_viewPerformanceProgressReport" class="waves-effect waves-orange"><span class="material-icons left-menu-icon"></span><span class="left-menu-title">Performance Progress</span><span class="material-icons collapsible-indicator"></span></a></li><li class="level3"><a href="#/performance/export_results/112" ui-sref="performance.export_results({&quot;reportId&quot; :112})" ui-sref-opts="{reload: true, notify: true}" ng-attr-target="{{undefined}}" id="menu_performance_viewPerformanceResultsExport" class="waves-effect waves-orange"><span class="material-icons left-menu-icon"></span><span class="left-menu-title">Export Performance Data</span><span class="material-icons collapsible-indicator"></span></a></li></ul></div></li></ul></div></li><li id="menu_onboarding_defaultMenuView" class="level1 on-boarding no-padding parent"><a class="collapsible-header waves-effect waves-orange"><span class="material-icons left-menu-icon"></span><span class="left-menu-title">On-boarding</span><span class="material-icons collapsible-indicator"></span></a><div class="collapsible-body" style=""><ul class="collapsible collapsible-accordion"><li class="level2"><a href="/client/#/noncore/onboarding/viewTaskTypes" id="menu_onboarding_viewTaskTypes" class="waves-effect waves-orange"><span class="material-icons left-menu-icon"></span><span class="left-menu-title">Task Types</span><span class="material-icons collapsible-indicator"></span></a></li><li class="level2"><a href="/client/#/noncore/onboarding/viewJobs/reset/1" id="menu_onboarding_viewJobs" class="waves-effect waves-orange"><span class="material-icons left-menu-icon"></span><span class="left-menu-title">Events</span><span class="material-icons collapsible-indicator"></span></a></li><li class="level2"><a href="/client/#/noncore/onboarding/viewMyJobs/reset/1" id="menu_onboarding_viewMyJobs" class="waves-effect waves-orange"><span class="material-icons left-menu-icon"></span><span class="left-menu-title">My Events</span><span class="material-icons collapsible-indicator"></span></a></li><li class="level2"><a href="/client/#/noncore/onboarding/viewEmployeeTasks/reset/1" id="menu_onboarding_viewEmployeeTasks" class="waves-effect waves-orange"><span class="material-icons left-menu-icon"></span><span class="left-menu-title">Employee Tasks</span><span class="material-icons collapsible-indicator"></span></a></li><li class="level2"><a href="/client/#/noncore/onboarding/viewMyTasks/reset/1" id="menu_onboarding_viewMyTasks" class="waves-effect waves-orange"><span class="material-icons left-menu-icon"></span><span class="left-menu-title">My Tasks</span><span class="material-icons collapsible-indicator"></span></a></li><li id="menu_onboarding_viewOnboardingReport" class="level2 no-padding parent"><a class="collapsible-header waves-effect waves-orange"><span class="material-icons left-menu-icon"></span><span class="left-menu-title">Reports</span><span class="material-icons collapsible-indicator"></span></a><div class="collapsible-body" style=""><ul class="collapsible collapsible-accordion"><li class="level3"><a href="#/report/////Event_Progress_Report" ui-sref="report_view({&quot;id&quot;: &quot;Event_Progress_Report&quot;, &quot;filters&quot;: null})" ui-sref-opts="{reload: true, notify: true}" ng-attr-target="{{undefined}}" id="menu_onboarding_viewOnboardingReport" class="waves-effect waves-orange"><span class="material-icons left-menu-icon"></span><span class="left-menu-title">Event Progress</span><span class="material-icons collapsible-indicator"></span></a></li><li class="level3"><a href="#/report/////Employee_Progress_Report" ui-sref="report_view({&quot;id&quot;: &quot;Employee_Progress_Report&quot;, &quot;filters&quot;: null})" ui-sref-opts="{reload: true, notify: true}" ng-attr-target="{{undefined}}" id="menu_onboarding_viewOnboardingReport" class="waves-effect waves-orange"><span class="material-icons left-menu-icon"></span><span class="left-menu-title">Participant Progress</span><span class="material-icons collapsible-indicator"></span></a></li></ul></div></li></ul></div></li><li id="menu_expense_viewExpenseModule" class="level1 expense no-padding parent"><a class="collapsible-header waves-effect waves-orange"><span class="material-icons left-menu-icon"></span><span class="left-menu-title">Expense</span><span class="material-icons collapsible-indicator"></span></a><div class="collapsible-body" style=""><ul class="collapsible collapsible-accordion"><li id="menu_expense_Configuration" class="level2 no-padding parent"><a class="collapsible-header waves-effect waves-orange"><span class="material-icons left-menu-icon"></span><span class="left-menu-title">Configuration</span><span class="material-icons collapsible-indicator"></span></a><div class="collapsible-body" style=""><ul class="collapsible collapsible-accordion"><li class="level3"><a href="/client/#/noncore/expense/viewCurrencyExchangeRate" id="menu_expense_viewCurrencyExchangeRate" class="waves-effect waves-orange"><span class="material-icons left-menu-icon"></span><span class="left-menu-title">Currency Exchange Rates</span><span class="material-icons collapsible-indicator"></span></a></li><li class="level3"><a href="/client/#/noncore/expense/viewEmployeeGroup" id="menu_expense_viewEmployeeGroup" class="waves-effect waves-orange"><span class="material-icons left-menu-icon"></span><span class="left-menu-title">Eligibility Groups</span><span class="material-icons collapsible-indicator"></span></a></li><li class="level3"><a href="/client/#/noncore/expense/viewExpenseType" id="menu_expense_viewExpenseType" class="waves-effect waves-orange"><span class="material-icons left-menu-icon"></span><span class="left-menu-title">Expense Types</span><span class="material-icons collapsible-indicator"></span></a></li></ul></div></li><li id="menu_expense_TravelRequests" class="level2 no-padding parent"><a class="collapsible-header waves-effect waves-orange"><span class="material-icons left-menu-icon"></span><span class="left-menu-title">Travel Requests</span><span class="material-icons collapsible-indicator"></span></a><div class="collapsible-body" style=""><ul class="collapsible collapsible-accordion"><li class="level3"><a href="/client/#/noncore/expense/viewEmployeeEstimateRequest" id="menu_expense_viewEmployeeEstimateRequest" class="waves-effect waves-orange"><span class="material-icons left-menu-icon"></span><span class="left-menu-title">Employee Travel Requests</span><span class="material-icons collapsible-indicator"></span></a></li><li class="level3"><a href="/client/#/noncore/expense/viewEstimateRequest" id="menu_expense_viewEstimateRequest" class="waves-effect waves-orange"><span class="material-icons left-menu-icon"></span><span class="left-menu-title">My Travel Requests</span><span class="material-icons collapsible-indicator"></span></a></li></ul></div></li><li id="menu_expense_Claims" class="level2 no-padding parent"><a class="collapsible-header waves-effect waves-orange"><span class="material-icons left-menu-icon"></span><span class="left-menu-title">Claims</span><span class="material-icons collapsible-indicator"></span></a><div class="collapsible-body" style=""><ul class="collapsible collapsible-accordion"><li class="level3"><a href="/client/#/noncore/expense/viewExpenseClaims" id="menu_expense_viewExpenseClaims" class="waves-effect waves-orange"><span class="material-icons left-menu-icon"></span><span class="left-menu-title">Employee Claims</span><span class="material-icons collapsible-indicator"></span></a></li><li class="level3"><a href="/client/#/noncore/expense/viewMyExpenseClaims" id="menu_expense_viewMyExpenseClaims" class="waves-effect waves-orange"><span class="material-icons left-menu-icon"></span><span class="left-menu-title">My Claims</span><span class="material-icons collapsible-indicator"></span></a></li></ul></div></li><li class="level2"><a href="#/reports/expense/expense_reports" ui-sref="reports({&quot;module&quot;: &quot;expense&quot;, &quot;templateName&quot;: &quot;EXPENSE_Report_template&quot;, &quot;dataGroup&quot;: &quot;expense_reports&quot;})" ui-sref-opts="{reload: true, notify: true}" ng-attr-target="{{undefined}}" id="menu_expense_travelRequestReport" class="waves-effect waves-orange"><span class="material-icons left-menu-icon"></span><span class="left-menu-title">Reports</span><span class="material-icons collapsible-indicator"></span></a></li></ul></div></li><li class="level1 reports_catalog"><a href="#/admin/reports_catalog" ui-sref="admin.reports_catalog" ui-sref-opts="{reload: true, notify: true}" ng-attr-target="{{undefined}}" id="menu_admin_reportsCatalog" class="waves-effect waves-orange"><span class="material-icons left-menu-icon"></span><span class="left-menu-title">Reports Catalog</span><span class="material-icons collapsible-indicator"></span></a></li><li id="menu_news_More" class="level1 more no-padding parent current active"><a class="collapsible-header waves-effect waves-orange active"><span class="material-icons left-menu-icon"></span><span class="left-menu-title">More</span><span class="material-icons collapsible-indicator"></span></a><div class="collapsible-body" style="display: block; padding-top: 0px; margin-top: 0px; padding-bottom: 0px; margin-bottom: 0px;"><ul class="collapsible collapsible-accordion"><li id="menu_news_viewAnnouncementModule" class="level2 no-padding parent"><a class="collapsible-header waves-effect waves-orange"><span class="material-icons left-menu-icon"></span><span class="left-menu-title">Announcements</span><span class="material-icons collapsible-indicator"></span></a><div class="collapsible-body" style=""><ul class="collapsible collapsible-accordion"><li class="level3"><a href="/client/#/noncore/news/viewDocumentArticle/type/documents/status/published" id="menu_news_viewDocumentArticle" class="waves-effect waves-orange"><span class="material-icons left-menu-icon"></span><span class="left-menu-title">Documents</span><span class="material-icons collapsible-indicator"></span></a></li><li class="level3"><a href="/client/#/noncore/news/viewNewsArticles/type/news/status/published" id="menu_news_viewNewsArticles" class="waves-effect waves-orange"><span class="material-icons left-menu-icon"></span><span class="left-menu-title">News</span><span class="material-icons collapsible-indicator"></span></a></li></ul></div></li><li class="level2 current active"><a href="#/dashboard" ui-sref="dashboard" ui-sref-opts="{reload: true, notify: true}" ng-attr-target="{{undefined}}" id="menu_dashboard_index" class="waves-effect waves-orange active current"><span class="material-icons left-menu-icon"></span><span class="left-menu-title">Dashboard</span><span class="material-icons collapsible-indicator"></span></a></li><li class="level2"><a href="/buzz/viewBuzz" target="_blank" id="menu_buzz_viewBuzz" class="waves-effect waves-orange"><span class="material-icons left-menu-icon"></span><span class="left-menu-title">Buzz</span><span class="material-icons collapsible-indicator"></span></a></li><li class="level2"><a href="/client/#/noncore/directory/viewDirectory/reset/1" id="menu_directory_viewDirectory" class="waves-effect waves-orange"><span class="material-icons left-menu-icon"></span><span class="left-menu-title">Directory</span><span class="material-icons collapsible-indicator"></span></a></li><li id="menu_orgChart_OrganizationChart" class="level2 no-padding parent"><a class="collapsible-header waves-effect waves-orange"><span class="material-icons left-menu-icon"></span><span class="left-menu-title">Organization Chart</span><span class="material-icons collapsible-indicator"></span></a><div class="collapsible-body" style=""><ul class="collapsible collapsible-accordion"><li class="level3"><a href="/client/#/noncore/orgChart/configReportingMethod" id="menu_orgChart_configReportingMethod" class="waves-effect waves-orange"><span class="material-icons left-menu-icon"></span><span class="left-menu-title">Config</span><span class="material-icons collapsible-indicator"></span></a></li><li class="level3"><a href="/client/#/noncore/orgChart/defineJobTitleHierarchy" id="menu_orgChart_defineJobTitleHierarchy" class="waves-effect waves-orange"><span class="material-icons left-menu-icon"></span><span class="left-menu-title">Define Position</span><span class="material-icons collapsible-indicator"></span></a></li><li class="level3"><a href="/client/#/noncore/orgChart/orgchartView" id="menu_orgChart_orgchartView" class="waves-effect waves-orange"><span class="material-icons left-menu-icon"></span><span class="left-menu-title">View</span><span class="material-icons collapsible-indicator"></span></a></li></ul></div></li><li class="level2"><a href="#/admin/preferences" ui-sref="admin.preferences" ui-sref-opts="{reload: true, notify: true}" ng-attr-target="{{undefined}}" id="menu_admin_userConfiguration" class="waves-effect waves-orange"><span class="material-icons left-menu-icon"></span><span class="left-menu-title">Preferences</span><span class="material-icons collapsible-indicator"></span></a></li><li id="menu_asset_viewUserAssetList" class="level2 no-padding parent"><a class="collapsible-header waves-effect waves-orange"><span class="material-icons left-menu-icon"></span><span class="left-menu-title">Assets</span><span class="material-icons collapsible-indicator"></span></a><div class="collapsible-body" style=""><ul class="collapsible collapsible-accordion"><li class="level3"><a href="/client/#/noncore/asset/viewAssets/reset/1" id="menu_asset_viewAssets" class="waves-effect waves-orange"><span class="material-icons left-menu-icon"></span><span class="left-menu-title">View Assets</span><span class="material-icons collapsible-indicator"></span></a></li><li class="level3"><a href="/client/#/noncore/asset/viewBrands/reset/1" id="menu_asset_viewBrands" class="waves-effect waves-orange"><span class="material-icons left-menu-icon"></span><span class="left-menu-title">Brands</span><span class="material-icons collapsible-indicator"></span></a></li><li class="level3"><a href="/client/#/noncore/asset/viewCategories/reset/1" id="menu_asset_viewCategories" class="waves-effect waves-orange"><span class="material-icons left-menu-icon"></span><span class="left-menu-title">Categories</span><span class="material-icons collapsible-indicator"></span></a></li><li class="level3"><a href="/client/#/noncore/asset/viewVendorList" id="menu_asset_viewVendorList" class="waves-effect waves-orange"><span class="material-icons left-menu-icon"></span><span class="left-menu-title">Vendors</span><span class="material-icons collapsible-indicator"></span></a></li></ul></div></li></ul></div></li>            </ul>
+        </div>
+    </div>
+</div>
+
+
+
+
+<div class="modal custom-height-modal beaconDisplayAbout" id="displayAbout">
+    <div class="customized-modal-header">
+        <h4>About</h4>
+    </div>
+    <div class="modal-content customized-modal-content">
+        <div class="loadmask" id="displayAboutLoadMask" style="width:100%; height: 50px;"></div>
+    </div>
+    <div class="modal-footer">
+        <a class="modal-action action-btn waves-effect btn ohrm-modal-submit-btn right" id="heartbeatSubmitBtn">Ok</a>
+        <a class="modal-action modal-close cancel-btn waves-effect btn right" id="heartbeatCancelBtn">Cancel</a>
+    </div>
+</div>
+
+<script>
+    $(document).ready(function() {
+        jQuery('#logoutLink').click(function() {
+            scheduleNavigationLog();
+        });
+    });
+
+    function scheduleNavigationLog() {
+        var navigationLog = JSON.parse(localStorage.getItem("navigation_log"));
+        if (!navigationLog || navigationLog.length == 0) {
+            navigationLog = [];
+        }
+        var currentTime = (new Date()).toISOString().slice(0, 19).replace('T', ' ');
+        var latestLog = sessionStorage.getItem("navigation_log_latest");
+        if (!latestLog) {
+            latestLog = localStorage.getItem("navigation_log_latest");
+        }
+        latestLog = JSON.parse(latestLog);
+        navigationLog.push({fromUrl: latestLog.toUrl, toUrl: '/auth/login', time: currentTime});
+
+        var date = new Date();
+        date.setTime(date.getTime() + (24*60*60*1000));
+        expires = "; expires=" + date.toUTCString();
+        document.cookie = "navigation_log" + "=" + JSON.stringify(navigationLog) + expires + "; path=/";
+    }
+
+    $('#aboutDisplayLink').click(function(event) {
+        event.preventDefault();
+        $('#displayAbout').openModal({
+            ready: function(modal, trigger) {
+                var loadMask = $('#displayAboutLoadMask');
+                if (loadMask.length &gt; 0) {
+                    $.get('/communication/beaconAbout', function(data) {
+                        $('#displayAbout div.modal-content').html(data);
+                    })
+                }
+            }
+        });
+    });
+
+
+    jQuery('#displayAbout').click(function(event) {
+        event.stopImmediatePropagation();
+    });
+
+</script>
+</div>
+        </div>
+        <div ng-attr-id="{{noncore ? '' : 'right-side'}}" ng-class="{'menu-visible' : vm.showMenu &amp;&amp; !noncore}" class="menu-visible" id="right-side">
+            <!----><header ng-if="!noncore" class="clearfix menu-visible" ng-class="{'menu-visible' : vm.showMenu}">
+                <!----><div ui-view="navbar" autoscroll="true"></div>
+                <!----><div id="noncore-navbar" autoscroll="true" ng-if="contentEmbedded"><div class="navbar" id="dashboard-navbar">
+    <nav class="sub-nav z-depth-0">
+        <div class="nav-wrapper row">
+                <ul class="left">
+                    <li class="page-title">Dashboard</li>
+                </ul>
+                <ul class="right" style="margin-right: 190px">
+
+                                             <li class="highlight-icon" style="padding-top: 6px;padding-left:4px">
+                            <a id="dropDownTimeSheetTrigger" class="dropdown-button handCurser tooltipped" data-position="bottom" data-delay="50" data-tooltip="Pending Timesheets" data-activates="dropdown1" data-tooltip-id="eb782869-dba6-8a1a-4188-b3e15742261c"><span class="quickAccessIcon material-icons">schedule</span><span class="noOfNotifications"></span></a><div id="dropdown1">
+                    <div id="panel_draggable_1_2" class="" style="height:auto;">
+                        <div id="panel_resizable_1_2" class="panel_resizable panel-preview card ohrm-card" style="height:auto">
+                            <div class="dashboardCard-title">Pending Timesheets</div>
+                            
+
+<div class="collection-container dashboardNotification">
+    <ul class="collection" id="pending-timesheet-collection">
+                    <li class="collection-item noRecordsMsg">No Records are Available</li>
+            </ul>  
+
+</div>
+
+<div class="dashboardDropDownFooter">
+                <span style="text-align:left; cursor: pointer;float: left;"> 
+                 <span title="2018-05-14 to 2018-08-19">3 month(s)</span>            </span>
+            </div>
+
+
+                        </div> 
+                    </div>
+                </div>
+                        </li>
+                                                                <li class="highlight-icon" style="padding-top: 6px;padding-left:4px;">
+                            <a id="dropDownLeaveTrigger" class="dropdown-button handCurser tooltipped" data-position="bottom" data-delay="50" data-tooltip="Pending Leave Requests" data-activates="dropdownLeave" data-tooltip-id="4485c405-bd50-6c22-4b8e-5bb052e6d7b6"><span class="quickAccessIcon material-icons">insert_invitation</span><span class="noOfNotifications">1</span></a><div id="dropdownLeave">
+                    <div id="panel_draggable_1_1" class="" style="height:auto;">
+                        <div id="panel_resizable_1_1" class="panel_resizable panel-preview card ohrm-card" style="height:auto">
+                            <div class="dashboardCard-title">Pending Leave Requests</div>
+                            
+<div class="dashboardNotification collection-container ">
+    <ul class="collection" id="pending-leave-collection"><li class="collection-item avatar"><a target="_parent" href="/client/#/leave/view_leave_list/detail/717"><img class="employeePhoto circle" src="data:image/jpeg;base64,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" /><p class="pending-timesheet-title truncate">Linda Anderson</p><p class="pending-timesheet-content truncate">2018-07-05</p></a></li></ul>
+
+</div>
+<div class="dashboardDropDownFooter">
+            <span style="text-align:left; cursor: pointer;float: left;">
+             <span title="2018-07-01 to 2018-09-30">3 month(s)</span>        </span>
+    
+        <span style="text-align: right; float: right;">
+        Showing: <span id="leave-record-count">1</span> of <span id="leave-total-record-count">1</span>
+    </span>
+    
+</div>
+<script type="text/javascript">
+
+    $('#dropDownLeaveTrigger').find('.noOfNotifications').html(1);
+
+    // Add to OHRM namespace instead of polluting global namespace
+    var OHRM = (function (parent) {
+
+        parent.pendingLeave = {
+            moduleUrl: '/dashboard-tasklist-group-pending-leave-request',
+            baseUrl: '/client/#/leave/view_leave_list/detail/',
+            itemTemplate: '&lt;li class="collection-item avatar"&gt;'
+            + '&lt;a target="_parent" href=""&gt;&lt;img class="employeePhoto circle" src="/webres_5b22377f57f6e9.10136695/themes/6x-demo-responsive/images/default-photo.png"&gt;'
+            + '&lt;p class="pending-timesheet-title truncate"&gt;&lt;/p&gt;&lt;p class="pending-timesheet-content truncate"&gt;&lt;/p&gt;&lt;/a&gt;'
+            + '&lt;/li&gt;'
+        };
+        return parent;
+    }(OHRM || {}));
+</script>
+
+                        </div> 
+                    </div>
+                </div>
+                        </li>
+                                                                <li class="highlight-icon" style="padding-top: 6px;padding-left:4px;">
+                            <a id="dropDownRecruitmentTrigger" class="dropdown-button handCurser tooltipped" data-position="bottom" data-delay="50" data-tooltip="Scheduled Recruitment Events" data-activates="dropdownInterview" data-tooltip-id="a7fb3002-22b1-0a66-61d4-c3579dd8fad7"><span class="quickAccessIcon material-icons">contact_phone</span><span class="noOfNotifications">32</span></a><div id="dropdownInterview">
+                    <div id="panel_draggable_1_3" class="" style="height:auto;">
+                        <div id="panel_resizable_1_3" class="panel_resizable panel-preview card ohrm-card" style="height:auto">
+                            <div class="dashboardCard-title">Scheduled Interviews</div>
+                            
+<div id="task-list-group-panel-container-int" class="task-list-group-panel-container" style="height:100%; ">
+    <ul id="task-list-group-panel-menu_holder-int" class="task-list-group-panel-menu_holder collection" style="line-height:1.5;overflow-x: hidden; overflow-y: auto; border-left: 0;border-right: 0;max-height: 300px;"><li class="collection-item" id="int_31_16_7"><a style=";" href="#"><p class="pending-timesheet-title truncate">1st interview  - Mike Copeland</p><p class="pending-timesheet-content truncate">2017-03-21 16:00:00</p></a></li><li class="collection-item" id="int_32_8_7"><a style=";" href="#"><p class="pending-timesheet-title truncate">IQ Test - Daniel Nolan</p><p class="pending-timesheet-content truncate">2017-06-17 15:30:00</p></a></li><li class="collection-item" id="int_33_14_7"><a style=";" href="#"><p class="pending-timesheet-title truncate">1st interview - IT - Gerad Butler</p><p class="pending-timesheet-content truncate">2017-06-21 17:45:00</p></a></li><li class="collection-item" id="int_32_13_7"><a style=";" href="#"><p class="pending-timesheet-title truncate">IQ Test - Phil Hughes</p><p class="pending-timesheet-content truncate">2017-06-22 14:30:00</p></a></li><li class="collection-item" id="int_8_9_2"><a style=";" href="#"><p class="pending-timesheet-title truncate">2nd Interview - Crishal Powell</p><p class="pending-timesheet-content truncate">2017-07-18 11:58:00</p></a></li><li class="collection-item" id="int_31_8_7"><a style=";" href="#"><p class="pending-timesheet-title truncate">1st interview  - Daniel Nolan</p><p class="pending-timesheet-content truncate">2017-07-25 12:30:00</p></a></li><li class="collection-item" id="int_34_8_7"><a style=";" href="#"><p class="pending-timesheet-title truncate">First Interview - Daniel Nolan</p><p class="pending-timesheet-content truncate">2017-07-25 12:30:00</p></a></li><li class="collection-item" id="int_31_13_7"><a style=";" href="#"><p class="pending-timesheet-title truncate">1st interview  - Phil Hughes</p><p class="pending-timesheet-content truncate">2017-07-26 12:35:00</p></a></li><li class="collection-item" id="int_34_13_7"><a style=";" href="#"><p class="pending-timesheet-title truncate">First Interview - Phil Hughes</p><p class="pending-timesheet-content truncate">2017-07-26 12:35:00</p></a></li><li class="collection-item" id="int_31_14_7"><a style=";" href="#"><p class="pending-timesheet-title truncate">1st interview  - Gerad Butler</p><p class="pending-timesheet-content truncate">2017-07-31 10:30:00</p></a></li><li class="collection-item" id="int_9_9_2"><a style=";" href="#"><p class="pending-timesheet-title truncate">Selection Interview - Crishal Powell</p><p class="pending-timesheet-content truncate">2017-07-31 11:58:00</p></a></li><li class="collection-item" id="int_33_8_7"><a style=";" href="#"><p class="pending-timesheet-title truncate">1st interview - IT - Daniel Nolan</p><p class="pending-timesheet-content truncate">2017-07-31 12:30:00</p></a></li><li class="collection-item" id="int_33_13_7"><a style=";" href="#"><p class="pending-timesheet-title truncate">1st interview - IT - Phil Hughes</p><p class="pending-timesheet-content truncate">2017-08-02 16:00:00</p></a></li><li class="collection-item" id="int_68_22_9"><a style=";" href="#"><p class="pending-timesheet-title truncate">2nd Interview - Steve Anderson</p><p class="pending-timesheet-content truncate">2017-08-08 16:00:00</p></a></li><li class="collection-item" id="int_10_9_2"><a style=";" href="#"><p class="pending-timesheet-title truncate">Final Interview - Crishal Powell</p><p class="pending-timesheet-content truncate">2017-08-15 11:58:00</p></a></li><li class="collection-item" id="int_69_21_10"><a style=";" href="#"><p class="pending-timesheet-title truncate">1st Interview - Jenny Harris</p><p class="pending-timesheet-content truncate">2017-08-16 15:55:00</p></a></li><li class="collection-item" id="int_112_32_20"><a style=";" href="#"><p class="pending-timesheet-title truncate">First Interview - Donald Cook</p><p class="pending-timesheet-content truncate">2017-08-29 04:00:00</p></a></li><li class="collection-item" id="test_152_33_21"><a style=";" href="#"><p class="pending-timesheet-title truncate">Job Knowledge Test - Charles Powell</p><p class="pending-timesheet-content truncate">2017-09-12 06:00:00</p></a></li><li class="collection-item" id="test_152_35_21"><a style=";" href="#"><p class="pending-timesheet-title truncate">Job Knowledge Test - Robert White</p><p class="pending-timesheet-content truncate">2017-09-19 07:00:00</p></a></li><li class="collection-item" id="int_55_17_12"><a style=";" href="#"><p class="pending-timesheet-title truncate">1st interview  - Gloss Hamilton</p><p class="pending-timesheet-content truncate">2017-09-26 15:30:00</p></a></li><li class="collection-item" id="int_55_20_12"><a style=";" href="#"><p class="pending-timesheet-title truncate">1st interview  - Daniel Smith</p><p class="pending-timesheet-content truncate">2017-10-10 07:00:00</p></a></li><li class="collection-item" id="int_173_59_29"><a style=";" href="#"><p class="pending-timesheet-title truncate">Final Interview - Archie Augustine</p><p class="pending-timesheet-content truncate">2018-06-29 16:00:00</p></a></li><li class="collection-item" id="int_173_62_29"><a style=";" href="#"><p class="pending-timesheet-title truncate">Final Interview - Joshua Malfoy</p><p class="pending-timesheet-content truncate">2018-06-29 17:00:00</p></a></li><li class="collection-item" id="int_173_66_29"><a style=";" href="#"><p class="pending-timesheet-title truncate">Final Interview - Muhammed Nabeel</p><p class="pending-timesheet-content truncate">2018-06-29 18:00:00</p></a></li><li class="collection-item" id="test_171_59_29"><a style=";" href="#"><p class="pending-timesheet-title truncate">Job Knowledge Test - Archie Augustine</p><p class="pending-timesheet-content truncate">2018-07-02 09:00:00</p></a></li><li class="collection-item" id="test_171_60_29"><a style=";" href="#"><p class="pending-timesheet-title truncate">Job Knowledge Test - Elizabeth Scott</p><p class="pending-timesheet-content truncate">2018-07-02 10:00:00</p></a></li><li class="collection-item" id="test_171_61_29"><a style=";" href="#"><p class="pending-timesheet-title truncate">Job Knowledge Test - Johan Conell</p><p class="pending-timesheet-content truncate">2018-07-02 11:00:00</p></a></li><li class="collection-item" id="test_171_62_29"><a style=";" href="#"><p class="pending-timesheet-title truncate">Job Knowledge Test - Joshua Malfoy</p><p class="pending-timesheet-content truncate">2018-07-02 12:00:00</p></a></li><li class="collection-item" id="test_171_63_29"><a style=";" href="#"><p class="pending-timesheet-title truncate">Job Knowledge Test - Mason Jenson</p><p class="pending-timesheet-content truncate">2018-07-02 13:00:00</p></a></li><li class="collection-item" id="test_171_64_29"><a style=";" href="#"><p class="pending-timesheet-title truncate">Job Knowledge Test - Elizabeth Scott</p><p class="pending-timesheet-content truncate">2018-07-02 14:00:00</p></a></li><li class="collection-item" id="test_171_65_29"><a style=";" href="#"><p class="pending-timesheet-title truncate">Job Knowledge Test - Sienna Miller</p><p class="pending-timesheet-content truncate">2018-07-02 15:00:00</p></a></li><li class="collection-item" id="test_171_66_29"><a style=";" href="#"><p class="pending-timesheet-title truncate">Job Knowledge Test - Muhammed Nabeel</p><p class="pending-timesheet-content truncate">2018-07-02 16:00:00</p></a></li></ul>
+    <ul id="interview_footer" class="dashboardDropDownFooter">
+            <span style="text-align: right; float: right;">
+        Showing: <span id="interview-record-count">32</span> of <span id="interview-total-record-count">32</span>
+    </span>
+        </ul>
+
+</div>
+
+
+<script type="text/javascript">
+    $('#dropDownRecruitmentTrigger').find('.noOfNotifications').html(32);
+
+    var OHRM = (function (parent) {
+
+        parent.lang = parent.lang || {};
+        parent.lang.to = 'to';
+
+        parent.scheduledInterviews = {
+            interviewAssistantEnabled: true,
+            interviewAssistantDisabledToast: 'Interview Assistant Is Disabled in the License. Please Request a License Upgrade to Enable the Feature.',
+            moduleUrl: '/dashboard-tasklist-group-scheduled-interviews',
+            itemTemplate: '&lt;li class="collection-item"&gt;'
+            + '&lt;a style=";" href="#"&gt;'
+            + '&lt;p class="pending-timesheet-title truncate"&gt;&lt;/p&gt;&lt;p class="pending-timesheet-content truncate"&gt;&lt;/p&gt;&lt;/a&gt;'
+            + '&lt;/li&gt;',
+
+            getInterviewUrl: function(eventId, candidateId) {
+                return '/recruitment/liveInterview' + "/eventId/" + eventId + "/candidateId/" + candidateId;
+            },
+
+            getProfileUrl: function(eventId, candidateId, vacancyId) {
+                return '/recruitment/candidateProfile' + "?candidateId=" + candidateId
+                    + "&amp;vacancyId=" + vacancyId + "&amp;eventId=" + eventId;
+            }
+
+        };
+
+        return parent;
+    } (OHRM || {}));
+</script>
+
+                        </div> 
+                    </div>
+                </div>
+                        </li>
+                                    </ul>
+            </div>
+
+    </nav>
+</div></div><!---->
+            </header><!---->
+            <section id="content" class="content">
+                <div id="linear-progress" style="height:0"></div>
+                <!----><div ui-view="" class="shuffle-animation" autoscroll="true"></div>
+                                <!----><div id="noncore-view" autoscroll="true" ng-if="contentEmbedded"><script type="text/javascript" src="/webres_5b22377f57f6e9.10136695/orangehrmDashboardPlugin/js/dashboard.min.js"></script>
+<div class="dashboard-outline row">
+        <div id="interviewAssistantNotEnabledModal" class="modal confirm-dialog">
+<!--    <div class="modal-content customized-modal-header"
+         style="text-align: center; margin-top: 0px; margin-bottom: 10px; padding-top:16px; padding-bottom:16px">
+        <h4></h4>
+    </div>-->
+    <div class="modal-content">
+        <h4></h4>
+        <p>Interview assistant is disabled in the license. Please request a license upgrade to enable the feature.</p>
+    </div>
+    
+    <div class="modal-footer confirm-dialog-footer">
+
+                <a style="float: none !important;text-align: center" id="btnOk" class="modal-action modal-close waves-effect btn right cancel-btn">Ok</a>
+         
+            </div>
+</div>   
+
+
+            
+                                                     
+                
+                <div class="col s12 m12 l6">
+                    <div id="panel_draggable_0_4">
+                        <div id="panel_resizable_0_4" class="card ohrm-card" style=" height: 400px">
+                            <div class="dashboardCard-title-for-card">Employee Distribution by Subunit</div>
+                                 
+
+
+    <div class="card-image waves-effect waves-block waves-light">
+        <div style="width: 70%; margin: 0px 90px 0px auto;">
+            
+
+    <div id="div_ohrmReportVisualizer_Display_emp_distribution" style="margin-top: 10px; width: 370px; height: 260px; padding: 0px; position: relative;"><canvas class="flot-base" width="370" height="260" style="direction: ltr; position: absolute; left: 0px; top: 0px; width: 370px; height: 260px;"></canvas><canvas class="flot-overlay" width="370" height="260" style="direction: ltr; position: absolute; left: 0px; top: 0px; width: 370px; height: 260px;"></canvas><span class="pieLabel" id="pieLabel0" style="position: absolute; top: 38.5px; left: 200.5px;"><div style="font-weight:bold;font-size:8pt;text-align:center;padding:2px;color:white;">10%</div></span><span class="pieLabel" id="pieLabel4" style="position: absolute; top: 155.5px; left: 251.5px;"><div style="font-weight:bold;font-size:8pt;text-align:center;padding:2px;color:white;">20%</div></span><span class="pieLabel" id="pieLabel6" style="position: absolute; top: 206.5px; left: 178.5px;"><div style="font-weight:bold;font-size:8pt;text-align:center;padding:2px;color:white;">10%</div></span><span class="pieLabel" id="pieLabel7" style="position: absolute; top: 189.5px; left: 120.5px;"><div style="font-weight:bold;font-size:8pt;text-align:center;padding:2px;color:white;">13%</div></span><span class="pieLabel" id="pieLabel10" style="position: absolute; top: 122.5px; left: 85.5px;"><div style="font-weight:bold;font-size:8pt;text-align:center;padding:2px;color:white;">11%</div></span><span class="pieLabel" id="pieLabel11" style="position: absolute; top: 49.5px; left: 122.5px;"><div style="font-weight:bold;font-size:8pt;text-align:center;padding:2px;color:white;">20%</div></span></div>
+        
+    <div id="div_ohrmReportVisualizer_Display_emp_distribution_legend" style="width:100px;display:block;float:left;"></div>
+    <br class="clear" />
+    <div id="hover_div_ohrmReportVisualizer_Display_emp_distribution" style="width:auto;"></div>
+    <div class="graph_title">
+        <span></span>
+    </div>    
+    <script type="text/javascript">        
+        $(document).ready(function() {
+            
+            var data = {"Not assigned to Subunits":9,"Administration":8,"Architecture Team":2,"Customer Success":0,"Engineering":17,"Finance":2,"IT":9,"Marketing":11,"Product and Training":0,"Production":2,"QA Team":10,"Sales":17,"Sample Sub Unit":0};
+            var graph = {"xAxisLabels":[],"yAxisLabels":[],"legend":{"labels":["Not assigned to Subunits","Administration","Architecture Team","Customer Success","Engineering","Finance","IT","Marketing","Product and Training","Production","QA Team","Sales","Sample Sub Unit"],"noOfColumns":13,"useSeparateContainer":true,"legendDivId":"div_legend_pim_employee_distribution"},"barWidth":1,"barOpacity":1,"yAxisMinValue":0,"yAxisMaxValue":null,"yAxisMinTickSize":1};
+
+
+            var properties = {"show-legend":true,"show-labels":true,"interactive":true,"suffixForValueHover":"Employee(s)"};
+            
+            visualizePieChart(data, graph, properties, 'div_ohrmReportVisualizer_Display_emp_distribution','');        }); 
+    </script>   
+
+            
+        </div>
+    </div>
+    <div class="card-content">            
+        <span class="card-title activator grey-text text-darken-4"><i class="material-icons moreIcon right">more_vert</i></span>            
+    </div>
+    <div class="card-reveal">
+        <div class="card-title card-title-reveal" style="margin-top: -20px;margin-left: -30px;">Legends <i class="material-icons right closeIcon handCurser" style="margin-top: 12px;margin-right: -30px">close</i></div>
+
+        <div id="task-list-group-panel-menu_holder-legend" style="" class="legend-holder">
+            <div id="div_legend_pim_employee_distribution_legend" style="width:100%;display:block;height:90%;overflow-y: auto"><table style="font-size:smaller;color:#545454"><tbody><tr><td class="legendColorBox"><div style="border:1px solid #ccc;padding:1px"><div style="width:4px;height:0;border:5px solid rgb(234,0,52);overflow:hidden"></div></div></td><td class="legendLabel">Not assigned to Subunits</td></tr><tr><td class="legendColorBox"><div style="border:1px solid #ccc;padding:1px"><div style="width:4px;height:0;border:5px solid rgb(255,230,59);overflow:hidden"></div></div></td><td class="legendLabel">Administration</td></tr><tr><td class="legendColorBox"><div style="border:1px solid #ccc;padding:1px"><div style="width:4px;height:0;border:5px solid rgb(0,149,67);overflow:hidden"></div></div></td><td class="legendLabel">Architecture Team</td></tr><tr><td class="legendColorBox"><div style="border:1px solid #ccc;padding:1px"><div style="width:4px;height:0;border:5px solid rgb(7,185,252);overflow:hidden"></div></div></td><td class="legendLabel">Customer Success</td></tr><tr><td class="legendColorBox"><div style="border:1px solid #ccc;padding:1px"><div style="width:4px;height:0;border:5px solid rgb(253,71,3);overflow:hidden"></div></div></td><td class="legendLabel">Engineering</td></tr><tr><td class="legendColorBox"><div style="border:1px solid #ccc;padding:1px"><div style="width:4px;height:0;border:5px solid rgb(130,0,172);overflow:hidden"></div></div></td><td class="legendLabel">Finance</td></tr><tr><td class="legendColorBox"><div style="border:1px solid #ccc;padding:1px"><div style="width:4px;height:0;border:5px solid rgb(0,71,189);overflow:hidden"></div></div></td><td class="legendLabel">IT</td></tr><tr><td class="legendColorBox"><div style="border:1px solid #ccc;padding:1px"><div style="width:4px;height:0;border:5px solid rgb(154,240,0);overflow:hidden"></div></div></td><td class="legendLabel">Marketing</td></tr><tr><td class="legendColorBox"><div style="border:1px solid #ccc;padding:1px"><div style="width:4px;height:0;border:5px solid rgb(0,171,56);overflow:hidden"></div></div></td><td class="legendLabel">Product and Training</td></tr><tr><td class="legendColorBox"><div style="border:1px solid #ccc;padding:1px"><div style="width:4px;height:0;border:5px solid rgb(255,26,26);overflow:hidden"></div></div></td><td class="legendLabel">Production</td></tr><tr><td class="legendColorBox"><div style="border:1px solid #ccc;padding:1px"><div style="width:4px;height:0;border:5px solid rgb(255,130,42);overflow:hidden"></div></div></td><td class="legendLabel">QA Team</td></tr><tr><td class="legendColorBox"><div style="border:1px solid #ccc;padding:1px"><div style="width:4px;height:0;border:5px solid rgb(182,16,191);overflow:hidden"></div></div></td><td class="legendLabel">Sales</td></tr><tr><td class="legendColorBox"><div style="border:1px solid #ccc;padding:1px"><div style="width:4px;height:0;border:5px solid rgb(41,41,163);overflow:hidden"></div></div></td><td class="legendLabel">Sample Sub Unit</td></tr></tbody></table></div>
+        </div>
+    </div>
+    
+                        </div> 
+                    </div>
+                </div>
+                                                                 
+                
+                <div class="col s12 m12 l6">
+                    <div id="panel_draggable_0_5">
+                        <div id="panel_resizable_0_5" class="card ohrm-card" style=" height: 400px">
+                            <div class="dashboardCard-title-for-card">Leave Taken from January by Subunit</div>
+                                
+
+    <div class="card-image waves-effect waves-block waves-light">
+        <div class="activator" style="width: 70%;margin: 0px 90px 0px auto;">
+            
+
+    <div id="div_ohrmReportVisualizer_Display_leaveGraph" style="margin-top: 10px; display: block; float: left; width: 370px; height: 270px; padding: 0px; position: relative;"><canvas class="flot-base" width="370" height="270" style="direction: ltr; position: absolute; left: 0px; top: 0px; width: 370px; height: 270px;"></canvas><div class="flot-text" style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; font-size: smaller; color: rgb(84, 84, 84);"><div class="flot-x-axis flot-x1-axis xAxis x1Axis" style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; display: block;"><div class="flot-tick-label tickLabel" style="position: absolute; max-width: 185px; top: 252px; left: 182px; text-align: center;">6.5</div></div><div class="flot-y-axis flot-y1-axis yAxis y1Axis" style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; display: block;"><div class="flot-tick-label tickLabel" style="position: absolute; top: 239px; left: 8px; text-align: right;">0</div><div class="flot-tick-label tickLabel" style="position: absolute; top: 191px; left: 8px; text-align: right;">5</div><div class="flot-tick-label tickLabel" style="position: absolute; top: 143px; left: 2px; text-align: right;">10</div><div class="flot-tick-label tickLabel" style="position: absolute; top: 96px; left: 2px; text-align: right;">15</div><div class="flot-tick-label tickLabel" style="position: absolute; top: 48px; left: 2px; text-align: right;">20</div><div class="flot-tick-label tickLabel" style="position: absolute; top: 0px; left: 2px; text-align: right;">25</div></div></div><canvas class="flot-overlay" width="370" height="270" style="direction: ltr; position: absolute; left: 0px; top: 0px; width: 370px; height: 270px;"></canvas></div>
+        
+    <div id="div_ohrmReportVisualizer_Display_leaveGraph_legend" style="width:100px;display:block;float:left;"></div>
+    <br class="clear" />
+    <div id="hover_div_ohrmReportVisualizer_Display_leaveGraph" style="width:auto;"></div>
+    <div class="graph_title">
+        <span></span>
+    </div>    
+    <script type="text/javascript">        
+        $(document).ready(function() {
+            
+            var data = [["1.0000"],["7.0000"],[0],[0],["5.0000"],["1.0000"],["23.0000"],["2.0000"],[0],["1.0000"],["3.0000"],["4.0000"],[0]];
+            var graph = {"xAxisLabels":[],"yAxisLabels":[],"legend":{"labels":["Not assigned to Subunits","Administration","Architecture Team","Customer Success","Engineering","Finance","IT","Marketing","Product and Training","Production","QA Team","Sales","Sample Sub Unit"],"noOfColumns":13,"useSeparateContainer":true,"legendDivId":"bar_chart_legend","legendVerticalAlignment":true},"barWidth":1,"barOpacity":1,"yAxisMinValue":0,"yAxisMaxValue":null,"yAxisMinTickSize":1};
+
+
+            var properties = {"show-legend":true,"show-labels":true,"interactive":true,"suffixForValueHover":"day(s)","suffixForLabelForHover":"Leave Taken"};
+            
+            visualizeBarChart(data, graph, properties, 'div_ohrmReportVisualizer_Display_leaveGraph','1');        }); 
+    </script>   
+
+            
+        </div>
+    </div>
+    <div class="card-content">            
+        <span class="card-title activator grey-text text-darken-4"><i class="material-icons right">more_vert</i></span>            
+    </div>
+    <div class="card-reveal">
+        <span class="card-title card-title-reveal" style="margin-top: -20px;margin-left: -30px;">Legends <i class="material-icons right" style="margin-top: 12px;margin-right: -30px">close</i></span>
+        <div id="legend" class="legend-holder">
+            <div id="bar_chart_legend_legend" style="width:100%;display:block;height:90%;overflow-y: auto"><table style="font-size:smaller;color:#545454"><tbody><tr><td class="legendColorBox"><div style="border:1px solid #ccc;padding:1px"><div style="width:4px;height:0;border:5px solid rgb(234,0,52);overflow:hidden"></div></div></td><td class="legendLabel">Not assigned to Subunits</td></tr><tr><td class="legendColorBox"><div style="border:1px solid #ccc;padding:1px"><div style="width:4px;height:0;border:5px solid rgb(255,230,59);overflow:hidden"></div></div></td><td class="legendLabel">Administration</td></tr><tr><td class="legendColorBox"><div style="border:1px solid #ccc;padding:1px"><div style="width:4px;height:0;border:5px solid rgb(0,149,67);overflow:hidden"></div></div></td><td class="legendLabel">Architecture Team</td></tr><tr><td class="legendColorBox"><div style="border:1px solid #ccc;padding:1px"><div style="width:4px;height:0;border:5px solid rgb(7,185,252);overflow:hidden"></div></div></td><td class="legendLabel">Customer Success</td></tr><tr><td class="legendColorBox"><div style="border:1px solid #ccc;padding:1px"><div style="width:4px;height:0;border:5px solid rgb(253,71,3);overflow:hidden"></div></div></td><td class="legendLabel">Engineering</td></tr><tr><td class="legendColorBox"><div style="border:1px solid #ccc;padding:1px"><div style="width:4px;height:0;border:5px solid rgb(130,0,172);overflow:hidden"></div></div></td><td class="legendLabel">Finance</td></tr><tr><td class="legendColorBox"><div style="border:1px solid #ccc;padding:1px"><div style="width:4px;height:0;border:5px solid rgb(0,71,189);overflow:hidden"></div></div></td><td class="legendLabel">IT</td></tr><tr><td class="legendColorBox"><div style="border:1px solid #ccc;padding:1px"><div style="width:4px;height:0;border:5px solid rgb(154,240,0);overflow:hidden"></div></div></td><td class="legendLabel">Marketing</td></tr><tr><td class="legendColorBox"><div style="border:1px solid #ccc;padding:1px"><div style="width:4px;height:0;border:5px solid rgb(0,171,56);overflow:hidden"></div></div></td><td class="legendLabel">Product and Training</td></tr><tr><td class="legendColorBox"><div style="border:1px solid #ccc;padding:1px"><div style="width:4px;height:0;border:5px solid rgb(255,26,26);overflow:hidden"></div></div></td><td class="legendLabel">Production</td></tr><tr><td class="legendColorBox"><div style="border:1px solid #ccc;padding:1px"><div style="width:4px;height:0;border:5px solid rgb(255,130,42);overflow:hidden"></div></div></td><td class="legendLabel">QA Team</td></tr><tr><td class="legendColorBox"><div style="border:1px solid #ccc;padding:1px"><div style="width:4px;height:0;border:5px solid rgb(182,16,191);overflow:hidden"></div></div></td><td class="legendLabel">Sales</td></tr><tr><td class="legendColorBox"><div style="border:1px solid #ccc;padding:1px"><div style="width:4px;height:0;border:5px solid rgb(41,41,163);overflow:hidden"></div></div></td><td class="legendLabel">Sample Sub Unit</td></tr></tbody></table></div>
+        </div>
+    </div>
+    
+
+                        </div> 
+                    </div>
+                </div>
+                                                        
+            
+                                                                             
+                
+                                       
+                                                         
+                  
+                                                                                         
+                
+                        
+            
+                                                     
+                
+                <div class="col s12 m12 l6">
+                    <div id="panel_draggable_2_8">
+                        <div id="panel_resizable_2_8" class="card ohrm-card" style=" height: 400px">
+                            <div class="dashboardCard-title-for-card">Documents</div>
+                            
+    <div class="" style="height: 100%;" id="dashboard__viewDocumentsOnDashboard"><div class="item-container" id="documentsOnDashboard">
+    <div class="inner">
+        <ul id="documentList" class="collection">
+            
+                                    <li id="docTitle_.1" class="collection-item avatar">
+                        <span class="tooltipped circle-avatar" data-position="top" data-delay="50" data-tooltip="Misc" style="float: left;background-color: #FF9600">M</span>
+                        <div class="truncate">
+                            <span>
+                                <a class="truncate topic left-space" style="float:left;max-width: 65%;padding-left:10px" href="/client/#/noncore/news/viewDocumentArticle/type/documents/status/published/articleId/13">
+                                    Salary Information (Compensation &amp; Classification)                                </a>
+                            </span>
+                            <span style="width: auto;float:right">
+                                2018-06-21                            </span>
+
+                        </div>
+                        <div style="padding-left:0px;" class="truncate">
+                            <div class="truncate left-space left-align" style="float:left;width: 100%;padding-left:10px">
+                                <span>
+                                Hi All,
+Please find the attached Star nomination form for all employees to fill in their salary details.
+Please let me know if you have any problem downloading this attachment. I have also attached a link here where you can get all other HR related documents. Please click on the below link to access this page- 
+ 
+Download HR related forms
+ 
+Thank you
+regards
+HR Team                                 </span>
+                            </div>
+                        </div>
+                    </li>
+                                    <li id="docTitle_.2" class="collection-item avatar">
+                        <span class="tooltipped circle-avatar" data-position="top" data-delay="50" data-tooltip="Insurance" style="float: left;background-color: #5751D9">I</span>
+                        <div class="truncate">
+                            <span>
+                                <a class="truncate topic left-space" style="float:left;max-width: 65%;padding-left:10px" href="/client/#/noncore/news/viewDocumentArticle/type/documents/status/published/articleId/12">
+                                    Health Insurance in the United States                                </a>
+                            </span>
+                            <span style="width: auto;float:right">
+                                2018-05-23                            </span>
+
+                        </div>
+                        <div style="padding-left:0px;" class="truncate">
+                            <div class="truncate left-space left-align" style="float:left;width: 100%;padding-left:10px">
+                                <span>
+                                Dear All,
+Please refer to the Health Insurance in the United States for year 2017 and kindly acknowledge if this is received.
+Thank you
+Regards
+HR Team                                 </span>
+                            </div>
+                        </div>
+                    </li>
+                                    <li id="docTitle_.3" class="collection-item avatar">
+                        <span class="tooltipped circle-avatar" data-position="top" data-delay="50" data-tooltip="Leave Policy" style="float: left;background-color: #C86EDF">L</span>
+                        <div class="truncate">
+                            <span>
+                                <a class="truncate topic left-space" style="float:left;max-width: 65%;padding-left:10px" href="/client/#/noncore/news/viewDocumentArticle/type/documents/status/published/articleId/11">
+                                    Paid Parental Leave in the United States                                </a>
+                            </span>
+                            <span style="width: auto;float:right">
+                                2018-04-10                            </span>
+
+                        </div>
+                        <div style="padding-left:0px;" class="truncate">
+                            <div class="truncate left-space left-align" style="float:left;width: 100%;padding-left:10px">
+                                <span>
+                                This paper was prepared by the Institute for Women’s Policy Research (IWPR) as a part of a series ofScholars’ Papers sponsored by the U.S. Department of Labor Women's Bureau in commemoration of the50th Anniversary of American Women: Report of the President’s Commission on the Status of Women,1963.                                 </span>
+                            </div>
+                        </div>
+                    </li>
+                                    <li id="docTitle_.4" class="collection-item avatar">
+                        <span class="tooltipped circle-avatar" data-position="top" data-delay="50" data-tooltip="Customer Service Documents" style="float: left;background-color: #44DB5E">C</span>
+                        <div class="truncate">
+                            <span>
+                                <a class="truncate topic left-space" style="float:left;max-width: 65%;padding-left:10px" href="/client/#/noncore/news/viewDocumentArticle/type/documents/status/published/articleId/7">
+                                    Measurable Customer Service Standards                                </a>
+                            </span>
+                            <span style="width: auto;float:right">
+                                2018-02-28                            </span>
+
+                        </div>
+                        <div style="padding-left:0px;" class="truncate">
+                            <div class="truncate left-space left-align" style="float:left;width: 100%;padding-left:10px">
+                                <span>
+                                Hi All,
+How do you create a set of service standards?
+There are at least seven potential sources of information to help define the service standards for an organization: 
+
+management
+employees
+existing customers
+potential customers
+lost or former customers
+competitors
+regulatory authorities
+Management 
+
+
+Best Regards,
+Global Team
+                                  </span>
+                            </div>
+                        </div>
+                    </li>
+                                    <li id="docTitle_.5" class="collection-item avatar">
+                        <span class="tooltipped circle-avatar" data-position="top" data-delay="50" data-tooltip="Press Releases" style="float: left;background-color: #44DB5E">P</span>
+                        <div class="truncate">
+                            <span>
+                                <a class="truncate topic left-space" style="float:left;max-width: 65%;padding-left:10px" href="/client/#/noncore/news/viewDocumentArticle/type/documents/status/published/articleId/8">
+                                    Press Release on Laser Shooting Robot's Door                                </a>
+                            </span>
+                            <span style="width: auto;float:right">
+                                2017-12-20                            </span>
+
+                        </div>
+                        <div style="padding-left:0px;" class="truncate">
+                            <div class="truncate left-space left-align" style="float:left;width: 100%;padding-left:10px">
+                                <span>
+                                Hi All,
+Opportunity Knocks on Laser Shooting Robot's Door
+Luxury hand-made laser shooting robot specialists expand their business to Europe.
+San Francisco, California – January, 2018
+
+Lasershootingrobots.com, the leading manufacturer of luxury hand-made laser shooting robots in North America today announced it would be expanding to Europe. The company, which prides itself on crafting unique one-of-a-kind laser shooting robots for residential and commercial projects, will tie up with Chuck Norris Metal Workers (CNMW) to manufacture and ship its products to Europe.
+“We are thrilled to partner with CNMW and showcase our products in the leading laser and robot regions of the world”, says owner and CEO of Laser Shooting Robots, Brad Lambert. “Their passion and dedication to making quality robots is already well known. It’s an honor to be able to design alongside their team.”
+ 
+Best Regards,
+HR Team                                 </span>
+                            </div>
+                        </div>
+                    </li>
+                                    <li id="docTitle_.6" class="collection-item avatar">
+                        <span class="tooltipped circle-avatar" data-position="top" data-delay="50" data-tooltip="Agendas" style="float: left;background-color: #FF3824">A</span>
+                        <div class="truncate">
+                            <span>
+                                <a class="truncate topic left-space" style="float:left;max-width: 65%;padding-left:10px" href="/client/#/noncore/news/viewDocumentArticle/type/documents/status/published/articleId/9">
+                                    Annual General meeting &amp; Dinner                                </a>
+                            </span>
+                            <span style="width: auto;float:right">
+                                2017-10-31                            </span>
+
+                        </div>
+                        <div style="padding-left:0px;" class="truncate">
+                            <div class="truncate left-space left-align" style="float:left;width: 100%;padding-left:10px">
+                                <span>
+                                Hi All,
+
+Best Regards,
+Global HR Team                                 </span>
+                            </div>
+                        </div>
+                    </li>
+                                    <li id="docTitle_.7" class="collection-item avatar">
+                        <span class="tooltipped circle-avatar" data-position="top" data-delay="50" data-tooltip="Meeting documents" style="float: left;background-color: #FF2851">M</span>
+                        <div class="truncate">
+                            <span>
+                                <a class="truncate topic left-space" style="float:left;max-width: 65%;padding-left:10px" href="/client/#/noncore/news/viewDocumentArticle/type/documents/status/published/articleId/10">
+                                    Global Company Meeting                                </a>
+                            </span>
+                            <span style="width: auto;float:right">
+                                2017-10-31                            </span>
+
+                        </div>
+                        <div style="padding-left:0px;" class="truncate">
+                            <div class="truncate left-space left-align" style="float:left;width: 100%;padding-left:10px">
+                                <span>
+                                Hi All,
+Our global meeting forecasts the increasing strategic role and value that meeting and event play in organization.
+In the 2017 forecast, we see a shift in sentiment, reflecting both continued global expansion and growth, balanced by political and economic uncertainty. Our survey respondents have indicated overarching program spend will likely be similar to 2016, but overall activity, including number of meetings or number of attendees per meeting, may see a decline. We’re seeing several trends in different regions of the world, which we’ll dive into below.
+
+Best Regards,
+Global Team                                 </span>
+                            </div>
+                        </div>
+                    </li>
+                                    <li id="docTitle_.8" class="collection-item avatar">
+                        <span class="tooltipped circle-avatar" data-position="top" data-delay="50" data-tooltip="Business Plans and Goals" style="float: left;background-color: #FF9600">B</span>
+                        <div class="truncate">
+                            <span>
+                                <a class="truncate topic left-space" style="float:left;max-width: 65%;padding-left:10px" href="/client/#/noncore/news/viewDocumentArticle/type/documents/status/published/articleId/6">
+                                    Goals and Strategies                                </a>
+                            </span>
+                            <span style="width: auto;float:right">
+                                2017-10-31                            </span>
+
+                        </div>
+                        <div style="padding-left:0px;" class="truncate">
+                            <div class="truncate left-space left-align" style="float:left;width: 100%;padding-left:10px">
+                                <span>
+                                Hi All,
+Goals and Objectives Checklist If you're having trouble deciding what your goals and objectives are, here are some questions to ask yourself:
+
+How determined am I to see this succeed?
+Am I willing to invest my own money and work long hours for no pay, sacrificing personal time and lifestyle, maybe for years?
+What's going to happen to me if this venture doesn't work out?
+If it does succeed, how many employees will this company eventually have?
+What will be its annual revenues in a year? Five years?
+What will be its market share in that time frame?
+Will it be a niche marketer, or will it sell a broad spectrum of good and services?
+What are my plans for geographic expansion? Local? National? Global?
+Am I going to be a hands-on manager, or will I delegate a large proportion of tasks to others?
+If I delegate, what sorts of tasks will I share? Sales? Technical? Others?
+How comfortable am I taking direction from others? Could I work with partners or investors who demand input into the company's management?
+Is it going to remain independent and privately owned, or will it eventually be acquired or go public?
+
+Best Regards,
+Global Team                                 </span>
+                            </div>
+                        </div>
+                    </li>
+                                    <li id="docTitle_.9" class="collection-item avatar">
+                        <span class="tooltipped circle-avatar" data-position="top" data-delay="50" data-tooltip="Accounting Documents" style="float: left;background-color: #FF2851">A</span>
+                        <div class="truncate">
+                            <span>
+                                <a class="truncate topic left-space" style="float:left;max-width: 65%;padding-left:10px" href="/client/#/noncore/news/viewDocumentArticle/type/documents/status/published/articleId/5">
+                                    Truth in Accounting                                </a>
+                            </span>
+                            <span style="width: auto;float:right">
+                                2017-10-31                            </span>
+
+                        </div>
+                        <div style="padding-left:0px;" class="truncate">
+                            <div class="truncate left-space left-align" style="float:left;width: 100%;padding-left:10px">
+                                <span>
+                                Hi All,
+The steps required for individual transactions in the accounting process are:
+Identify the transaction. First, determine what kind of transaction it may be. Examples are buying goods from suppliers, selling products to customers, paying employees, and recording the receipt of cash from customers.Prepare document. There is frequently a business document to be prepared or recognized to initiate the transaction, such as an invoice to a customer or an invoice from a supplier.
+
+Identify accounts. Every business transaction is recorded in an account in the accounting database, such as a revenue, expense, asset, liability, or
+ 
+ stockholders' equity account. Identify which accounts are to be used to record the transaction.Record the transaction. Enter the transaction in the accounting system. This is done either with a journal entry or an on-line standard transaction form (such as is used to record cash receipts against open accounts receivable). In the latter case, the transaction forms record information in a pre-determined set of accounts. 
+ 
+ 
+Best Regards,
+HR Team                                 </span>
+                            </div>
+                        </div>
+                    </li>
+                                    <li id="docTitle_.10" class="collection-item avatar">
+                        <span class="tooltipped circle-avatar" data-position="top" data-delay="50" data-tooltip="Employee Handbook" style="float: left;background-color: #0076FF">E</span>
+                        <div class="truncate">
+                            <span>
+                                <a class="truncate topic left-space" style="float:left;max-width: 65%;padding-left:10px" href="/client/#/noncore/news/viewDocumentArticle/type/documents/status/published/articleId/4">
+                                    Health &amp; Safety Guidelines                                </a>
+                            </span>
+                            <span style="width: auto;float:right">
+                                2017-10-16                            </span>
+
+                        </div>
+                        <div style="padding-left:0px;" class="truncate">
+                            <div class="truncate left-space left-align" style="float:left;width: 100%;padding-left:10px">
+                                <span>
+                                Health and Safety Policy
+OrangeHRM is committed to providing and maintaining a safe and healthy workplace for all staff, and to providing the information, training and supervision needed to achieve this.
+OrangHRM will take responsibility for health and safety procedures, however, employees need to be aware of their responsibilities and comply with the business’ health and safety policy.
+
+Each employee is encouraged to play a vital and responsible role in maintaining a safe and healthy workplace through:
+ 
+
+Being involved in the workplace health and safety system.
+Sticking to correct procedures and equipment.
+Wearing protective clothing and equipment as and when required.
+Reporting any pain or discomfort as soon as possible.
+Ensuring all accidents and incidents are reported.
+Helping new employees, trainees and visitors to the workplace understand the right safety procedures and why they exist.
+Telling your manager immediately of any health and safety concerns.
+Keeping the work place tidy to minimize the risk of any trips and falls.
+
+ 
+Your participation is much appreciated.
+ 
+Best Regards,
+HR Team
+                                  </span>
+                            </div>
+                        </div>
+                    </li>
+                
+            
+        </ul>
+    </div>
+</div>
+<div class="document-count-text">
+     <div class="left" style="display: inline;margin-left: 30px;">
+         
+    </div>
+    <div class="right" style="display: inline;margin-right: 18px;padding-top: 5px;font-size: 13px;">
+        Showing: 10 / 10    </div>
+</div></div>
+    <script type="text/javascript">
+
+        if (OHRM.angularInitialized) {
+            $(document).ready(function () {
+                var moduleUrl = '/dashboard/viewDocumentsOnDashboard';
+                var divId = 'dashboard__viewDocumentsOnDashboard';
+
+                $.ajax({
+                    url: moduleUrl,
+                    cache: true,
+                    success: function (obj) {
+                        $.ajaxSetup({
+                            // Enable caching of AJAX responses
+                            cache: true
+                        });
+                        $("#" + divId).html(obj);
+                    },
+                    complete: function () {
+                        $("#" + divId).removeClass('loadmask');
+                    }
+                });
+
+            });
+        }
+    </script>
+                        </div> 
+                    </div>
+                </div>
+                                                                 
+                
+                <div class="col s12 m12 l6">
+                    <div id="panel_draggable_2_9">
+                        <div id="panel_resizable_2_9" class="card ohrm-card" style=" height: 400px">
+                            <div class="dashboardCard-title-for-card">News</div>
+                            
+    <div class="" style="height: 100%;" id="dashboard__viewNewsOnDashboard"><div class="item-container" id="newsOnDashboard">
+    <div class="inner">
+        <ul class="collection" style="width:100%;">
+                                <li class="collection-item avatar">
+
+                        <div class="truncate">
+                            <span style="width: 65%;">
+                                <a class="truncate topic left-space" style="float:left;max-width: 65%" href="/client/#/noncore/news/viewNewsArticles/type/news/status/published/articleId/27">
+                                    Farewell Party for Andrew Daley                                </a>
+                            </span> 
+                            <span style="width: fit-content;float:right">
+                                2018-05-31                            </span>
+                        </div>
+                        <div class="truncate">
+                            <div class="truncate left-align" style="float:left;width: 100%;">
+                                <span>
+                                    Dear Andrew,
+As you start on your new venture                                                      this brings a wish your way, For many happy momentsto fill each coming day,And as you face the futurethat’s waiting just for you,May you soon discoveryour dreams have all come true,
+BEST WISHES
+Thank you!
+OrangeHRM Team
+ 
+P.S All colleagues of Andrew, please join the farewell party of Andrew at our Yankees ball room at 15:00 pm EST. To confirm your presence, please acknowledge this announcement.
+ 
+ 
+                                 </span>
+                            </div>
+                        </div>
+
+                    </li>
+
+
+                                    <li class="collection-item avatar">
+
+                        <div class="truncate">
+                            <span style="width: 65%;">
+                                <a class="truncate topic left-space" style="float:left;max-width: 65%" href="/client/#/noncore/news/viewNewsArticles/type/news/status/published/articleId/26">
+                                    The 10 things that drive HR crazy!!                                </a>
+                            </span> 
+                            <span style="width: fit-content;float:right">
+                                2018-05-23                            </span>
+                        </div>
+                        <div class="truncate">
+                            <div class="truncate left-align" style="float:left;width: 100%;">
+                                <span>
+                                    
+Part of HR’s job is to meet and communicate with employees and job seekers on a daily basis. But with employees giving weird excuses for being late to work, behaving strangely on business trips, and job seekers doing questionable things to get noticed, how much more can an HR executive handle?
+In line with that, OrangeHRM has compiled a list of 14 things that drive HR executives crazy – and here are 10 of our favourites.
+#1 Chasing people to do online training modulesThere’s no excuse for not completing a 15 minute safety training within 2 weeks.
+#2 Senior executives thinking the rules don’t apply to themYour company has a strict dress code for warehouse employees but the senior executives constantly enter the warehouse without protective gear.
+#3 Low employee engagement survey turnoutsThe most accurate way to get a reading of the employee engagement is by the survey.
+#4 Coming to a professional interview in casual attireHow is the recruiter supposed to take you seriously if you’re wearing jeans and yeezys?
+#5 Being asked to judge candidates based on things they shouldn’t be judged on. Things like attractiveness, number of kids, marital status, nationality, etc. Not only can this be immoral, but illegal as well.
+#6 Bringing your family to an interviewDon’t even think about bringing your parents to an interview.
+#7 HR not being at the executive tableHR is arguably the most important department in the organisation as people are the most important asset an organisation has. You have a CEO, COO, CMO, CTO, CFO, but no CHRO or CPO?
+#8 HR are not maidsHaving HR coordinators serve executive lunches is not an appropriate use of their time.
+#9 Storing a month’s worth of frozen food in the freezer or leaving food to rot in fridgeThe fridge and freezer are for everybody, you should be refilling it everyday.
+#10 Junk resumesSome HR execs have reported that over 98% of responses they get from a job board posting is junk. It’s either candidates from overseas who are looking to be sponsored, unqualified candidates, robots, or recruiting firms. This issue is become less common as more organisations are starting to use applicant tracking systems or ATS.                                </span>
+                            </div>
+                        </div>
+
+                    </li>
+
+
+                                    <li class="collection-item avatar">
+
+                        <div class="truncate">
+                            <span style="width: 65%;">
+                                <a class="truncate topic left-space" style="float:left;max-width: 65%" href="/client/#/noncore/news/viewNewsArticles/type/news/status/published/articleId/22">
+                                    TOMORROW TO BE A HOLIDAY                                </a>
+                            </span> 
+                            <span style="width: fit-content;float:right">
+                                2018-04-30                            </span>
+                        </div>
+                        <div class="truncate">
+                            <div class="truncate left-align" style="float:left;width: 100%;">
+                                <span>
+                                    Dear All,
+ 
+The HQ Office has announced that tomorrow will be a holiday in all departments of the company and that all employees must attend their last work day as today.
+ 
+Thank you
+ 
+Kind Regards
+HR Team                                </span>
+                            </div>
+                        </div>
+
+                    </li>
+
+
+                                    <li class="collection-item avatar">
+
+                        <div class="truncate">
+                            <span style="width: 65%;">
+                                <a class="truncate topic left-space" style="float:left;max-width: 65%" href="/client/#/noncore/news/viewNewsArticles/type/news/status/published/articleId/24">
+                                    Congratulations to Linda...!!!                                </a>
+                            </span> 
+                            <span style="width: fit-content;float:right">
+                                2018-04-10                            </span>
+                        </div>
+                        <div class="truncate">
+                            <div class="truncate left-align" style="float:left;width: 100%;">
+                                <span>
+                                     Hi All;  Linda has been blessed with a baby boy!
+
+Linda: With love, we welcome your dear new baby to this world. Congratulations!
+- ABC Team ..... !!!                                 </span>
+                            </div>
+                        </div>
+
+                    </li>
+
+
+                                    <li class="collection-item avatar">
+
+                        <div class="truncate">
+                            <span style="width: 65%;">
+                                <a class="truncate topic left-space" style="float:left;max-width: 65%" href="/client/#/noncore/news/viewNewsArticles/type/news/status/published/articleId/23">
+                                    What is GDPR, when is the compliance deadline in 2018?                                </a>
+                            </span> 
+                            <span style="width: fit-content;float:right">
+                                2018-04-10                            </span>
+                        </div>
+                        <div class="truncate">
+                            <div class="truncate left-align" style="float:left;width: 100%;">
+                                <span>
+                                     
+What is GDPR and when does it take effect?
+The General Data Protection Regulation is a piece of EU legislation passed by the European Parliament in 2016.
+It is enforceable in all EU countries from May 25, 2018.
+Punishing fines for data misuse and breaches can reach £18million or 4 percent of global annual turnover, whichever is higher.
+The GDPR aims to make it simpler for people to control how companies use their personal details.
+Strict rules mean companies will not be allowed to collect and use personal information without the person's consent.
+Data includes things like a person's name, email address and phone number, and also internet browsing habits collected by website cookies.
+Firms must also report any data breaches - including cyber attacks and accidental leaks - to authorities within 72 hours.
+Individuals can demand a copy of all data held about them, which must be supplied within 30 days.
+And in some cases, they can ask for any data to be deleted in a formal "right to be forgotten" law.
+Privacy campaigners have hailed the regulation as a new step forward for online rights, but small firms are furious about the burden of complying with the law.
+ 
+What does GDPR mean for businesses?
+With just over 100 days until the rules came into force, a government study showed only 38 percent of British firms were even aware of GDPR, let alone ready to comply.
+Business groups have said companies will have to spend £1.2million each on average to prepare for the complex rules on data processing.
+Many do not currently track their data processing in a way that complies with the new rules.
+And if they have sought consent from customers to collect data, often the records are out of date or the consents do not meet the GDPR standards.
+Facebook and Google are among the firms likely to be most affected by the changes.
+They make money from people's data by using it to target advertising at their interests.
+Retailers, insurers, and banks are also likely to have to make the biggest changes to ensure they comply.
+In January 2018 Facebook published a post detailing its "privacy principles" for the first time.
+Erin Egan, Chief Privacy Officer at Facebook, said that the principles "guide our work" and the company wants to give users "more control of your privacy".
+The guidelines state: "We recognize that people use Facebook to connect, but not everyone wants to share everything with everyone – including with us."
+Users in EU countries will get video guides in their newsfeeds teaching them how to control their privacy and advertising settings.
+Critics said the social media giant - with two billion users - had been forced into the move by GDPR and the guidelines "crib large chunks" of the EU regulation.
+Small businesses and charity fundraisers face a major headache as most do not have the resources or expertise to make sure they comply with the new rules.
+ 
+                                 </span>
+                            </div>
+                        </div>
+
+                    </li>
+
+
+                                    <li class="collection-item avatar">
+
+                        <div class="truncate">
+                            <span style="width: 65%;">
+                                <a class="truncate topic left-space" style="float:left;max-width: 65%" href="/client/#/noncore/news/viewNewsArticles/type/news/status/published/articleId/11">
+                                    Promotion Announcement                                </a>
+                            </span> 
+                            <span style="width: fit-content;float:right">
+                                2017-11-17                            </span>
+                        </div>
+                        <div class="truncate">
+                            <div class="truncate left-align" style="float:left;width: 100%;">
+                                <span>
+                                    David Morris - Brand Manager
+We are thrilled to announce the promotion of David Morris to Brand Manager in the Artwork department. 
+He joined the company four years ago and has advanced through progressively more responsible positions in both the Advertising and Artwork departments, where he has played a key role during our transition to our newly acquired marketing technology.
+Please join us in congratulating David on his promotion.
+ 
+
+Regards,
+Global HR Manger                                </span>
+                            </div>
+                        </div>
+
+                    </li>
+
+
+                                    <li class="collection-item avatar">
+
+                        <div class="truncate">
+                            <span style="width: 65%;">
+                                <a class="truncate topic left-space" style="float:left;max-width: 65%" href="/client/#/noncore/news/viewNewsArticles/type/news/status/published/articleId/9">
+                                    Black Friday Sale                                </a>
+                            </span> 
+                            <span style="width: fit-content;float:right">
+                                2017-10-31                            </span>
+                        </div>
+                        <div class="truncate">
+                            <div class="truncate left-align" style="float:left;width: 100%;">
+                                <span>
+                                    Hi All,
+Wow.com will be setting up a stall in the lobby on the 28th of November 2017 from 8:00am to 5:00pm.
+For more details, please visit the link below;
+http://www.castlecourt-uk.com/DatabaseImages/evt_2732759_blackfridaydeals.jpg
+
+Best Regards,
+Regional HR Team
+                                 </span>
+                            </div>
+                        </div>
+
+                    </li>
+
+
+                                    <li class="collection-item avatar">
+
+                        <div class="truncate">
+                            <span style="width: 65%;">
+                                <a class="truncate topic left-space" style="float:left;max-width: 65%" href="/client/#/noncore/news/viewNewsArticles/type/news/status/published/articleId/17">
+                                    New Baby Born to Jacqueline White                                </a>
+                            </span> 
+                            <span style="width: fit-content;float:right">
+                                2017-10-31                            </span>
+                        </div>
+                        <div class="truncate">
+                            <div class="truncate left-align" style="float:left;width: 100%;">
+                                <span>
+                                    Hi Jaqueline,
+Congratulations on the arrival of your new baby! This new addition will bring you lots of cuddling, fun times and sweet memories. It will be worth the sleepless nights. enjoy your baby’s little feet and baby smell. It will not be there forever.
+All the best to your family !!!
+
+Best Regards,
+Global Team
+                                 </span>
+                            </div>
+                        </div>
+
+                    </li>
+
+
+                                    <li class="collection-item avatar">
+
+                        <div class="truncate">
+                            <span style="width: 65%;">
+                                <a class="truncate topic left-space" style="float:left;max-width: 65%" href="/client/#/noncore/news/viewNewsArticles/type/news/status/published/articleId/18">
+                                    Turning an Internship                                </a>
+                            </span> 
+                            <span style="width: fit-content;float:right">
+                                2017-10-31                            </span>
+                        </div>
+                        <div class="truncate">
+                            <div class="truncate left-align" style="float:left;width: 100%;">
+                                <span>
+                                    Hi All,
+Our interns are turning their internships into job offers this December.
+
+Best Regards,
+HR Team                                </span>
+                            </div>
+                        </div>
+
+                    </li>
+
+
+                                    <li class="collection-item avatar">
+
+                        <div class="truncate">
+                            <span style="width: 65%;">
+                                <a class="truncate topic left-space" style="float:left;max-width: 65%" href="/client/#/noncore/news/viewNewsArticles/type/news/status/published/articleId/21">
+                                    New technology coming out in 2017                                </a>
+                            </span> 
+                            <span style="width: fit-content;float:right">
+                                2017-10-31                            </span>
+                        </div>
+                        <div class="truncate">
+                            <div class="truncate left-align" style="float:left;width: 100%;">
+                                <span>
+                                    Hi All,
+Here's the most exciting new technology 2017 has to offer:
+Samsung Galaxy S8. via http://bgr.com/2017/01/17/galaxy-s8-vs-iphone-8-price/  Micro Drone 3.0. via https://microdrone.co.uk/  iPhone 8 Microsoft Surface Pro 5 Pilot Pixel 3 Laptop Microsoft Surface Studio Nintendo Switch
+
+Best Regards,
+IT Team                                </span>
+                            </div>
+                        </div>
+
+                    </li>
+
+
+                                    <li class="collection-item avatar">
+
+                        <div class="truncate">
+                            <span style="width: 65%;">
+                                <a class="truncate topic left-space" style="float:left;max-width: 65%" href="/client/#/noncore/news/viewNewsArticles/type/news/status/published/articleId/19">
+                                    Company Anniversary                                </a>
+                            </span> 
+                            <span style="width: fit-content;float:right">
+                                2017-10-30                            </span>
+                        </div>
+                        <div class="truncate">
+                            <div class="truncate left-align" style="float:left;width: 100%;">
+                                <span>
+                                    Hi All,
+We are celebrating our 50th anniversary today.
+
+Best Regards,
+HR Team                                </span>
+                            </div>
+                        </div>
+
+                    </li>
+
+
+                                    <li class="collection-item avatar">
+
+                        <div class="truncate">
+                            <span style="width: 65%;">
+                                <a class="truncate topic left-space" style="float:left;max-width: 65%" href="/client/#/noncore/news/viewNewsArticles/type/news/status/published/articleId/20">
+                                    Mobile app Integration                                </a>
+                            </span> 
+                            <span style="width: fit-content;float:right">
+                                2017-10-30                            </span>
+                        </div>
+                        <div class="truncate">
+                            <div class="truncate left-align" style="float:left;width: 100%;">
+                                <span>
+                                    Hi All,
+Today, mobile app integration provides you with innovative ways to work effectively and gives you the option of utilizing your complete infrastructure behind your applications. Thus, you can have a robust and convenient service framework and easy to use user interface. 
+
+Best Regards,
+Global Team                                </span>
+                            </div>
+                        </div>
+
+                    </li>
+
+
+                                    </ul>
+    </div>
+</div>
+<div class="document-count-text">
+    <div class="left" style="display: inline;margin-left: 30px;">
+         
+    </div>
+    <div class="right" style="display: inline;margin-right: 18px;padding-top: 5px;font-size: 13px;">
+        Showing: 12 / 12    </div>
+</div>
+
+</div>
+    <script type="text/javascript">
+
+        if (OHRM.angularInitialized) {
+            $(document).ready(function () {
+                var moduleUrl = '/dashboard/viewNewsOnDashboard';
+                var divId = 'dashboard__viewNewsOnDashboard';
+
+                $.ajax({
+                    url: moduleUrl,
+                    cache: true,
+                    success: function (obj) {
+                        $.ajaxSetup({
+                            // Enable caching of AJAX responses
+                            cache: true
+                        });
+                        $("#" + divId).html(obj);
+                    },
+                    complete: function () {
+                        $("#" + divId).removeClass('loadmask');
+                    }
+                });
+
+            });
+        }
+    </script>
+                        </div> 
+                    </div>
+                </div>
+                        
+    </div>
+
+<script type="text/javascript">
+
+    var OHRM = (function (parent) {
+        parent.dashboard = parent.dashboard || {};
+
+        parent.dashboard.employeePhotosUrl = '/pim/getEmployeePhotosAjax';
+
+        return parent;
+    }(OHRM || {}));
+
+    $(document).ready(function () {
+
+        $('#dashboard-navbar .dropdown-button').click(function (event) {
+            $('.material-tooltip').hide();
+        }).dropdown();
+    });
+
+
+
+</script></div><!---->
+                            </section>
+            <!----><div ng-if="!noncore" class="center-align">
+                <div class="footer">OrangeHRM 6.4.1<br />
+        © 2005 - 2018 <a href="http://www.orangehrm.com" target="_blank">OrangeHRM, Inc</a>. All rights reserved.
+</div>
+            </div><!---->
+        </div>
+    </div>
+    </div>
+</div>
+
+<div id="preloader" class="center-align">
+    <div style="" class="preloader-wrapper active big">
+        <div class="spinner-layer">
+            <div class="circle-clipper left">
+                <div class="circle"></div>
+            </div><div class="gap-patch">
+                <div class="circle"></div>
+            </div><div class="circle-clipper right">
+                <div class="circle"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+
+        window.history.replaceState({skip: true},"", '/client/#/dashboard');
+    
+    // Module pattern to avoid polluting global namespace
+    var OHRM = (function (parent) {
+
+                parent.loginAccount = {"token":{"access_token":"3c798a2c4c2ad1f58be1bce69e6a3ec242e5e3e4","expires_in":3600,"token_type":"bearer","scope":"public private","refresh_token":"b512281d16fa958a894b68157159f6c978511d44"},"account":{"user_id":"1","emp_number":"13","first_name":"Jacqueline","is_global_admin":true,"usertype":"Admin","isSupervisor":false,"isDepartmentHead":false,"isAdmin":true,"hasEssRoleOnly":false,"permissions":{"employee":{"create":true,"delete-active":true,"delete-terminated":false,"terminate":true,"activate":true}},"preferences":{"language":"en","dateFormat":"Y-m-d"}},"first_access":true};
+        parent.settings = {"max_attachment_size":1048576,"allowed_image_types":["image\/gif","image\/jpeg","image\/jpg","image\/pjpeg","image\/png","image\/x-png"],"allowed_data_import_file_types":["text\/csv","text\/comma-separated-values","application\/csv","application\/vnd.ms-excel"],"allowed_data_import_file_types_extensions":["csv"],"is_country_based_enabled":true,"leave":{"allow_past_period_changes_without_adjust":false,"periods_to_apply_assign_outside_current":"1","enable_leave_type_leave_period":true,"use_apply_restrictions":true},"limits":{"employee_limit":500,"user_limit":500,"open_vacancy_limit":200},"page_size":50,"attachmentFileTypes":["image\/gif","image\/jpeg","image\/jpg","image\/pjpeg","image\/png","image\/x-png","application\/pdf","application\/msword","application\/vnd.ms-excel","text\/plain","application\/vnd.oasis.opendocument.text","application\/vnd.openxmlformats-officedocument.wordprocessingml.document","text\/rtf","application\/rtf","application\/vnd.ms-excel","application\/vnd.openxmlformats-officedocument.spreadsheetml.sheet","application\/vnd.oasis.opendocument.spreadsheet","application\/vnd.oasis.opendocument.presentation","application\/vnd.ms-powerpoint","application\/vnd.openxmlformats-officedocument.presentationml.presentation","application\/vnd.openxmlformats-officedocument.presentationml.slideshow","application\/vnd.oasis.opendocument.presentation","application\/vnd.ms-powerpoint"]};
+        parent.angularInitialized = false;
+
+        return parent;
+    } (OHRM || {}));
+
+
+</script>
+
+
+
+<div class="cfp-hotkeys-container fade" ng-class="{in: helpVisible}" style="display: none;"><div class="cfp-hotkeys"><!----><h4 class="cfp-hotkeys-title" ng-if="!header">Keyboard Shortcuts:</h4><!----><!----><table><tbody><!----><tr ng-repeat="hotkey in hotkeys | filter:{ description: '!$$undefined$$' }"><td class="cfp-hotkeys-keys"><!----><span ng-repeat="key in hotkey.format() track by $index" class="cfp-hotkeys-key">?</span><!----></td><td class="cfp-hotkeys-text">Show / hide this help menu</td></tr><!----></tbody></table><!----><div class="cfp-hotkeys-close" ng-click="toggleCheatSheet()">×</div></div></div><div class="material-tooltip" id="91e63171-3ab2-1967-798a-f8f5c0cb68c7" style="display: none;"><span>Pending Timesheets</span><div class="backdrop" style="top: 0px; left: 0px;"></div></div><div class="material-tooltip" id="5cb3e8fd-ae67-604f-bbfa-2091da9ff7e5" style="display: none;"><span>Pending Leave Requests</span><div class="backdrop" style="top: 0px; left: 0px;"></div></div><div class="material-tooltip" id="b6193c81-0aa2-f1a3-a33b-6927b29319ce" style="display: none;"><span>Scheduled Recruitment Events</span><div class="backdrop" style="top: 0px; left: 0px;"></div></div><div class="material-tooltip" id="eb782869-dba6-8a1a-4188-b3e15742261c" style="display: none;"><span>Pending Timesheets</span><div class="backdrop" style="top: 0px; left: 0px;"></div></div><div class="material-tooltip" id="4485c405-bd50-6c22-4b8e-5bb052e6d7b6" style="display: none;"><span>Pending Leave Requests</span><div class="backdrop" style="top: 0px; left: 0px;"></div></div><div class="material-tooltip" id="a7fb3002-22b1-0a66-61d4-c3579dd8fad7" style="display: none;"><span>Scheduled Recruitment Events</span><div class="backdrop" style="top: 0px; left: 0px;"></div></div><div class="hiddendiv common"></div></body></html>

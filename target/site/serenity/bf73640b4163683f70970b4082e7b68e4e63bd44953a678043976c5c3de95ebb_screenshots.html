@@ -1,0 +1,219 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>Screenshots</title>
+
+<link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
+<link rel="apple-touch-icon" sizes="57x57" href="/apple-icon-57x57.png">
+<link rel="apple-touch-icon" sizes="60x60" href="/apple-icon-60x60.png">
+<link rel="apple-touch-icon" sizes="72x72" href="/apple-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="76x76" href="/apple-icon-76x76.png">
+<link rel="apple-touch-icon" sizes="114x114" href="/apple-icon-114x114.png">
+<link rel="apple-touch-icon" sizes="120x120" href="/apple-icon-120x120.png">
+<link rel="apple-touch-icon" sizes="144x144" href="/apple-icon-144x144.png">
+<link rel="apple-touch-icon" sizes="152x152" href="/apple-icon-152x152.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-icon-180x180.png">
+<link rel="icon" type="image/png" sizes="192x192"  href="/android-icon-192x192.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<meta name="msapplication-TileColor" content="#ffffff">
+<meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+<meta name="theme-color" content="#ffffff">
+<link rel="stylesheet" href="font-awesome/css/font-awesome.min.css">
+<!--[if IE 7]>
+<link rel="stylesheet" href="font-awesome/css/font-awesome-ie7.min.css">
+<![endif]--><!-- JQuery -->
+<script type="text/javascript" src="scripts/jquery-1.11.1.min.js"></script><!-- Bootstrap -->
+<link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+<script src="bootstrap/js/bootstrap.min.js"></script><link rel="stylesheet" href="css/core.css"/>
+<link rel="stylesheet" href="css/link.css"/>
+<link type="text/css" media="screen" href="css/screen.css" rel="Stylesheet"/><!-- Nivo Slider -->
+<link rel="stylesheet" href="nivo-slider/3.2/nivo-slider.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="nivo-slider/3.2/themes/default/default.css" type="text/css" media="screen" />
+<script src="nivo-slider/3.2/jquery.nivo.slider.pack.js" type="text/javascript"></script>
+
+    <script type="text/javascript">
+
+        function getUrlVars() {
+            var vars = {};
+            var parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, function (m, key, value) {
+                vars[key] = value;
+            });
+            return vars;
+        }
+
+        var screenshotIndex = getUrlVars()["screenshot"];
+
+        $(window).load(function () {
+            $('#slider').nivoSlider({
+                startSlide: screenshotIndex,
+                effect: 'fade',
+                animSpeed: 200,
+                manualAdvance: true
+            });
+        });
+
+        $(window).keydown(function(e) {
+            switch(e.which) {
+                case 37:
+                    $('a.nivo-prevNav').click();
+                    break;
+                case 39:
+                    $('a.nivo-nextNav').click();
+                    break;
+            }
+        });
+    </script>
+
+</head>
+
+<body>
+<div id="topheader">
+    <div id="topbanner">
+        <div id="logo"><a href="index.html"><img src="images/serenity-logo.png" border="0"/></a></div>
+        <div id="projectname-banner" style="float:right">
+            <span class="projectname">Demo Project using Serenity and Cucumber</span>
+        </div>
+    </div>
+</div>
+
+<div class="middlecontent">
+    <div id="contenttop">
+        <div class="middlebg">
+            <span class="breadcrumbs">
+                <a href="index.html">Home</a>
+                > <span class="truncate-40"><a
+                    href="311c4df8d597d7afc63d01e6da75ff571a09cef3d1af5d111024bc89f107bc30.html">Title Of Your Feature</a></span>
+                > <span class="truncate-60"><a
+                    href="bf73640b4163683f70970b4082e7b68e4e63bd44953a678043976c5c3de95ebb.html">Title of your scenario </a></span>
+                > Screenshots
+            </span>
+        </div>
+        <div class="rightbg"></div>
+    </div>
+
+    <div class="clr"></div>
+
+    <!--/* starts second table*/-->
+<div>
+    <ul class="nav nav-tabs" role="tablist">
+        <li class="active">
+            <a href="#"><i class="fa fa-check-square-o"></i> Overall Test Results</a>
+        </li>
+        <li >
+            <a href="capabilities.html"><i class="fa fa-book"></i> Requirements</a>
+        </li>
+        <li >
+            <a href="576946480b52ad056d6f5bddf874399c83582ecf90963cc074a14c70580e7d9f.html"><i class="fa fa-comments-o"></i> Features</a>
+        </li>
+    </ul>
+    <span class="date-and-time"><a href="build-info.html"><i class="fa fa-info-circle"></i></a> Report generated 20-09-2018 13:15</span>
+    <br style="clear:left"/>
+</div>
+
+    <div class="clr"></div>
+
+
+    <div id="contentbody">
+        <div class="titlebar">
+            <div class="story-title">
+                <table class="outcome-header">
+                    <tr>
+                        <td>
+                            <div>
+                                <h3 class="discreet-story-header">
+                                    <i class="fa fa-2x fa-comments-o"></i>
+                                    <span class="story-header-title">Title Of Your Feature </span>
+                                    <span class="badge tag-badge" style="">Feature</span>
+                                </h3>
+
+                                <div class="discreet-requirement-narrative-title">
+                                I want to use this template for my feature file
+                                </div>
+                            </div>
+
+                        </td>
+                        <td valign="top" align="right">
+                            <p class="tag">
+                                <span class="badge tag-badge" style="background:default;"
+                                    <i class="fa fa-tag"></i>&nbsp;<a class="tagLink" style="background:default;" href="ec3644e9342d32fe427f28bfa83a3084b3999493dbafdd95c2d0cbb278b71b7f.html">Tag
+                                    (tag)</a>
+                                </span>
+                            </p>
+                            <p class="tag">
+                                <span class="badge tag-badge" style="background:default;"
+                                    <i class="fa fa-tag"></i>&nbsp;<a class="tagLink" style="background:default;" href="fd05263e534f996b2adbc5dc8ea46aad59d3c9f6aaeac83e41ec3826e700efdf.html">Succesfullcase
+                                    (tag)</a>
+                                </span>
+                            </p>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div class="story-title">
+                <table class="outcome-header">
+                    <tr>
+                        <td colspan="2" class="test-title-bar">
+                            <span class="outcome-icon"><i class='fa fa-check-square-o success-icon fa-2x' title='SUCCESS'></i></span>
+                            <span class="test-case-title">
+                                <span class="success-color">Title of your scenario
+                                    <span class="related-issue-title"></span>
+                                </span>
+                            </span>
+
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <div class="clr"></div>
+
+
+    <div id="beforetable"></div>
+    <div id="contenttilttle">
+        <div class="slider-wrapper theme-default">
+            <div id="slider">
+                <img src="98b5ce3b1d0cf8c05bd9d15ca1a37e0d53a14a851798b0d334ae627716349d3f.png" title="Given that Juan needs to create an employe in OrageHR" width="1366"/>
+                <img src="6e5fe074f3c05fc86b9efe6942714eb99749e26ca2e2bf237bfc72ba60d618df.png" title="Juan opens the Orange hrm" width="1366"/>
+                <img src="5fbe58393ff6aff8f693f44792cc9173a2ab1f4cbf617c8ad5f39445295382a1.png" title="Juan clicks on log in buttong" width="1366"/>
+                <img src="66a4611f8ddf69bbd0c367100a7314ed73b221cee9d839163947b492a87d7d16.png" title="When he performs the entry of the record in the application
+| Option | firstName | middleName | lastName | employeId | location | userName | status | password | confirmPassword | adminRole | titlePopUp |
+| PIM | peityn | tiendyn | peityn | 0444 | Australian Regional HQ | 1pepito24 | Disabled | 3158985879Ss | 3158985879Ss | Global Admin | Add Employee |" width="1366"/>
+                <img src="61918f8982dc1549733d2ddd991a4e46132dbacbe885bbece1125e1492ac9193.png" title="Juan clicks on add employe option" width="1366"/>
+                <img src="718dc7d28f7282b11eaa11d12b729ef2541e64321bf22cb80330e0bb3f76ea8c.png" title="Then pop up employe should be 'Add Employee'" width="1366"/>
+                <img src="549b77597af1552c4e52c13f9df060a7eee813c12ba0e17b77263f16ee7165cb.png" title="Juan enters 'peityn' into first name field" width="1366"/>
+                <img src="7a92bace839a2a55d67f011545a286929e90083133e1d5f02a048e90558cd6d2.png" title="Juan enters 'tiendyn' into middle name field" width="1366"/>
+                <img src="75f2c6b15c5a6a0c682c486170ecd2fb05b5bb8409c45263dc45135b76a586ae.png" title="Juan enters 'peityn' into last name field" width="1366"/>
+                <img src="8aed9e25e2be4ac36717a895d67486cffc5fbf0f213ff8209bd29d8b46537ae8.png" title="Juan enters '0444' into employe id field" width="1366"/>
+                <img src="f6a57dc3d9a0625d2356ad9c0465f90841be369eee22b5df3e06c66a99c080ca.png" title="Juan clicks on select location" width="1366"/>
+                <img src="ddf970e9988fbd2cd28a8cf010ec1306708880c9a0926580f2968cb00eeb39b6.png" title="Juan clicks on loging credentials checkbox" width="1366"/>
+                <img src="667280f4fb84438528dcc45acba0acad354abd6adbefc21e5a773cace321c6f7.png" title="Juan enters '1pepito24' into username field" width="1366"/>
+                <img src="b282a548f07b3408d33837f7f39ce41821bd6386148a1378115ad23c91f7ab52.png" title="Juan clicks on select status" width="1366"/>
+                <img src="0b95f633b505219a494eb67bf5bf8f5cd8de710f4571add08e8882ceed1e34ce.png" title="Juan enters '3158985879Ss' into password field" width="1366"/>
+                <img src="ea7c1e3c29be9a78061335a683a8b93b2b142df33508610e5daa745872ef932f.png" title="Juan enters '3158985879Ss' into confirm password field" width="1366"/>
+                <img src="f9d804b1ee0d3efe6b128bd6cde0e777e7f0b8f97bcd0f7c9a43043e433483f6.png" title="Juan clicks on select admin role" width="1366"/>
+                <img src="8d4ba2d278bff256523a497c7f6ac53b572a773f94269c167f96bf1739fc5723.png" title="Juan clicks on save button" width="1366"/>
+                <img src="2de0e8db5d5e860ffa644db4b60212eebe3d8f3a1ae4e02c1bf7058377eb2676.png" title="Then he visualize the new employe in the application
+| Option | employeeName |
+| PIM | peityn tiendyn peityn |" width="1366"/>
+                <img src="a37233e5b8367fdef5e7c070d38082d9e18b0831dbcdefeb0fc8db6b7a218ae7.png" title="Juan clicks on Employee list field" width="1366"/>
+                <img src="0b99760c9059411da01eb350731b4f5f21304507b8de830ca5f09a890d74301c.png" title="Juan enters 'peityn tiendyn peityn' into emplyee name search field" width="1366"/>
+                <img src="948964b5491854231940ae9bf1e006d8989a602bf8f1e3cd92ba4a76ac7cc595.png" title="Then search for should be (true): <span class='success-color'>SUCCESS</span>" width="1366"/>
+            </div>
+        </div>
+
+
+    </div>
+</div>
+<div id="beforefooter"></div>
+<div id="bottomfooter">
+    <span class="version">Serenity BDD version 1.9.9</span>
+</div>
+</body>
+</html>
